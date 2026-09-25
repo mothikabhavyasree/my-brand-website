@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Order Confirmed | My Brand</title>
+
+    <link rel="stylesheet"
+          href="css/style.css">
+
+</head>
+
+<body>
+
+
+<!-- HEADER -->
+
+<header>
+
+    <div class="logo">
+        MY BRAND
+    </div>
+
+
+    <nav>
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="shop.html">
+            Shop
+        </a>
+
+        <a href="shop.html">
+            New Arrivals
+        </a>
+
+        <a href="about.html">
+            About
+        </a>
+
+        <a href="contact.html">
+            Contact
+        </a>
+
+    </nav>
+
+
+    <div class="header-icons">
+
+
+        <!-- FASHION CART ICON -->
+
+        <a href="cart.html"
+           class="cart-icon">
+
+            <img
+                src="images/fashion-cart.png"
+                alt="Shopping Cart"
+            >
+
+        </a>
+
+
+        <!-- PROFILE ICON -->
+
+        <button
+            class="profile-icon"
+            onclick="openProfile()">
+
+            👤
+
+        </button>
+
+
+        <!-- PROFILE DROPDOWN -->
+
+        <div
+            id="profile-panel"
+            class="profile-panel">
+
+
+            <div class="profile-dropdown-header">
+
+                <div class="profile-user">
+
+                    <div class="profile-small-avatar">
+                        👤
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            My Account
+                        </strong>
+
+                        <small>
+                            Welcome to My Brand
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    class="profile-close"
+                    onclick="closeProfile()">
+
+                    ×
+
+                </button>
+
+            </div>
+
+
+            <!-- PROFILE -->
+
+            <a href="#"
+               class="profile-menu">
+
+                <span class="profile-menu-icon">
+                    👤
+                </span>
+
+                <span class="profile-menu-text">
+
+                    <strong>
+                        Profile
+                    </strong>
+
+                    <small>
+                        My account
+                    </small>
+
+                </span>
+
+            </a>
+
+
+            <!-- SHOPPING BAG -->
+
+            <a href="cart.html"
+               class="profile-menu">
+
+                <span class="profile-menu-icon">
+                    🛒
+                </span>
+
+                <span class="profile-menu-text">
+
+                    <strong>
+                        My Shopping Bag
+                    </strong>
+
+                    <small>
+                        View your products
+                    </small>
+
+                </span>
+
+            </a>
+
+
+            <!-- CONTACT -->
+
+            <a href="contact.html"
+               class="profile-menu">
+
+                <span class="profile-menu-icon">
+                    💬
+                </span>
+
+                <span class="profile-menu-text">
+
+                    <strong>
+                        Contact Us
+                    </strong>
+
+                    <small>
+                        We're here to help
+                    </small>
+
+                </span>
+
+            </a>
+
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<!-- SUCCESS PAGE -->
+
+<section class="success-page">
+
+    <div class="success-box">
+
+
+        <div class="success-icon">
+            ✓
+        </div>
+
+
+        <h1>
+            Order Confirmed!
+        </h1>
+
+
+        <p>
+            Thank you for shopping with MY BRAND.
+        </p>
+
+
+        <p>
+            Your order has been placed successfully.
+        </p>
+
+
+        <a
+            href="shop.html"
+            class="success-button">
+
+            CONTINUE SHOPPING
+
+        </a>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <h2>
+        MY BRAND
+    </h2>
+
+    <p>
+        Fashion made for you.
+    </p>
+
+
+    <div class="footer-links">
+
+        <a href="about.html">
+            About
+        </a>
+
+        <a href="contact.html">
+            Contact
+        </a>
+
+    </div>
+
+
+    <p class="copyright">
+
+        © 2026 My Brand.
+        All Rights Reserved.
+
+    </p>
+
+</footer>
+
+
+
+<!-- PROFILE JAVASCRIPT -->
+
+<script>
+
+function openProfile() {
+
+    document
+        .getElementById("profile-panel")
+        .classList.add("active");
+
+}
+
+
+function closeProfile() {
+
+    document
+        .getElementById("profile-panel")
+        .classList.remove("active");
+
+}
+
+</script>
+
+
+</body>
+
+</html>

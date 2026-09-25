@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Elegant Kurti | My Brand</title>
+
+    <link rel="stylesheet"
+          href="css/style.css">
+
+</head>
+
+<body>
+
+
+<!-- HEADER -->
+
+<header>
+
+    <div class="logo">
+        MY BRAND
+    </div>
+
+
+    <nav>
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="shop.html">
+            Shop
+        </a>
+
+        <a href="shop.html">
+            New Arrivals
+        </a>
+
+        <a href="about.html">
+            About
+        </a>
+
+        <a href="contact.html">
+            Contact
+        </a>
+
+    </nav>
+
+
+    <div class="header-icons">
+
+        <!-- CART -->
+
+        <a href="cart.html"
+           class="cart-icon">
+
+            <img
+                src="images/fashion-cart.png"
+                alt="Shopping Cart"
+            >
+
+        </a>
+
+
+        <!-- PROFILE -->
+
+        <button
+            class="profile-icon"
+            onclick="openProfile()">
+
+            👤
+
+        </button>
+
+
+        <!-- PROFILE DROPDOWN -->
+
+        <div
+            id="profile-panel"
+            class="profile-panel">
+
+
+            <div class="profile-dropdown-header">
+
+                <div class="profile-user">
+
+                    <div class="profile-small-avatar">
+                        👤
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            My Account
+                        </strong>
+
+                        <small>
+                            Welcome to My Brand
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    class="profile-close"
+                    onclick="closeProfile()">
+
+                    ×
+
+                </button>
+
+            </div>
+
+
+            <a href="#"
+               class="profile-menu">
+
+                <span class="profile-menu-icon">
+                    👤
+                </span>
+
+                <span class="profile-menu-text">
+
+                    <strong>
+                        Profile
+                    </strong>
+
+                    <small>
+                        My account
+                    </small>
+
+                </span>
+
+            </a>
+
+
+            <a href="cart.html"
+               class="profile-menu">
+
+                <span class="profile-menu-icon">
+                    🛒
+                </span>
+
+                <span class="profile-menu-text">
+
+                    <strong>
+                        My Shopping Bag
+                    </strong>
+
+                    <small>
+                        View your products
+                    </small>
+
+                </span>
+
+            </a>
+
+
+            <a href="contact.html"
+               class="profile-menu">
+
+                <span class="profile-menu-icon">
+                    💬
+                </span>
+
+                <span class="profile-menu-text">
+
+                    <strong>
+                        Contact Us
+                    </strong>
+
+                    <small>
+                        We're here to help
+                    </small>
+
+                </span>
+
+            </a>
+
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<!-- PRODUCT DETAILS -->
+
+<section class="product-details">
+
+
+    <!-- PRODUCT IMAGE -->
+
+    <div class="product-main-image">
+
+        Product Image
+
+    </div>
+
+
+
+    <!-- PRODUCT INFORMATION -->
+
+    <div class="product-info">
+
+        <p class="small-title">
+            NEW ARRIVAL
+        </p>
+
+
+        <h1>
+            Elegant Kurti
+        </h1>
+
+
+        <p class="product-price">
+            ₹1,299
+        </p>
+
+
+        <p class="product-description">
+
+            Beautiful and comfortable
+            women's kurti designed for
+            everyday elegance.
+
+        </p>
+
+
+        <!-- SIZE -->
+
+        <div class="size-section">
+
+            <h3>
+                Select Size
+            </h3>
+
+
+            <div class="sizes">
+
+                <button>S</button>
+
+                <button>M</button>
+
+                <button>L</button>
+
+                <button>XL</button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- QUANTITY -->
+
+        <div class="quantity">
+
+            <h3>
+                Quantity
+            </h3>
+
+
+            <div class="quantity-box">
+
+                <button>
+                    −
+                </button>
+
+                <span>
+                    1
+                </span>
+
+                <button>
+                    +
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- BUTTONS -->
+
+        <button class="add-cart">
+
+            ADD TO CART
+
+        </button>
+
+
+        <button class="buy-now">
+
+            BUY NOW
+
+        </button>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- PRODUCT DESCRIPTION -->
+
+<section class="product-description-section">
+
+    <h2>
+        Product Details
+    </h2>
+
+
+    <p>
+
+        This elegant kurti is designed
+        for comfort and style.
+
+        Perfect for casual outings,
+        office wear and everyday use.
+
+    </p>
+
+
+    <ul>
+
+        <li>
+            Comfortable fabric
+        </li>
+
+        <li>
+            Regular fit
+        </li>
+
+        <li>
+            Available in multiple sizes
+        </li>
+
+        <li>
+            Easy to style
+        </li>
+
+    </ul>
+
+</section>
+
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <h2>
+        MY BRAND
+    </h2>
+
+    <p>
+        Fashion made for you.
+    </p>
+
+    <p class="copyright">
+
+        © 2026 My Brand.
+        All Rights Reserved.
+
+    </p>
+
+</footer>
+
+
+
+<!-- JAVASCRIPT -->
+
+<script src="js/products.js"></script>
+
+<script src="js/script.js"></script>
+
+<script src="js/product.js"></script>
+
+
+<script>
+
+function openProfile() {
+
+    document
+        .getElementById("profile-panel")
+        .classList.add("active");
+
+}
+
+
+function closeProfile() {
+
+    document
+        .getElementById("profile-panel")
+        .classList.remove("active");
+
+}
+
+</script>
+
+
+</body>
+
+</html>

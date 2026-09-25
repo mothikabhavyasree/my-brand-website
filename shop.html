@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Shop | My Brand</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+
+<!-- HEADER -->
+
+<header>
+
+    <div class="logo">
+        MY BRAND
+    </div>
+
+
+    <nav>
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="shop.html">
+            Shop
+        </a>
+
+        <a href="shop.html">
+            New Arrivals
+        </a>
+
+        <a href="about.html">
+            About
+        </a>
+
+        <a href="contact.html">
+            Contact
+        </a>
+
+    </nav>
+
+
+    <div class="header-icons">
+
+        <!-- CART -->
+
+        <a href="cart.html" class="cart-icon">
+
+            <img
+                src="images/fashion-cart.png"
+                alt="Shopping Cart"
+            >
+
+        </a>
+
+
+        <!-- PROFILE -->
+
+        <button
+            class="profile-icon"
+            onclick="openProfile()">
+
+            👤
+
+        </button>
+
+
+        <!-- PROFILE DROPDOWN -->
+
+        <div
+            id="profile-panel"
+            class="profile-panel">
+
+
+            <div class="profile-dropdown-header">
+
+                <div class="profile-user">
+
+                    <div class="profile-small-avatar">
+                        👤
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            My Account
+                        </strong>
+
+                        <small>
+                            Welcome to My Brand
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    class="profile-close"
+                    onclick="closeProfile()">
+
+                    ×
+
+                </button>
+
+            </div>
+
+
+            <a
+                href="#"
+                class="profile-menu">
+
+                <span class="profile-menu-icon">
+                    👤
+                </span>
+
+                <span class="profile-menu-text">
+
+                    <strong>
+                        Profile
+                    </strong>
+
+                    <small>
+                        My account
+                    </small>
+
+                </span>
+
+            </a>
+
+
+            <a
+                href="cart.html"
+                class="profile-menu">
+
+                <span class="profile-menu-icon">
+                    🛒
+                </span>
+
+                <span class="profile-menu-text">
+
+                    <strong>
+                        My Shopping Bag
+                    </strong>
+
+                    <small>
+                        View your products
+                    </small>
+
+                </span>
+
+            </a>
+
+
+            <a
+                href="contact.html"
+                class="profile-menu">
+
+                <span class="profile-menu-icon">
+                    💬
+                </span>
+
+                <span class="profile-menu-text">
+
+                    <strong>
+                        Contact Us
+                    </strong>
+
+                    <small>
+                        We're here to help
+                    </small>
+
+                </span>
+
+            </a>
+
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<!-- SHOP HEADER -->
+
+<section class="shop-header">
+
+    <p class="small-title">
+        OUR COLLECTION
+    </p>
+
+    <h1>
+        Shop
+    </h1>
+
+    <p>
+        Discover our latest collection.
+    </p>
+
+</section>
+
+
+
+<!-- CATEGORY FILTER -->
+
+<section class="shop-section">
+
+
+    <!-- SEARCH -->
+
+    <div class="shop-search">
+
+        <input
+            type="text"
+            id="search-input"
+            placeholder="Search for products..."
+        >
+
+        🔍
+
+    </div>
+
+
+
+    <!-- CATEGORY FILTERS -->
+
+    <div class="shop-filters">
+
+        <button
+            class="filter-button active"
+            data-category="all">
+
+            All
+
+        </button>
+
+
+        <button
+            class="filter-button"
+            data-category="sarees">
+
+            Sarees
+
+        </button>
+
+
+        <button
+            class="filter-button"
+            data-category="kurtis">
+
+            Kurtis
+
+        </button>
+
+
+        <button
+            class="filter-button"
+            data-category="dresses">
+
+            Dresses
+
+        </button>
+
+
+        <button
+            class="filter-button"
+            data-category="co-ords">
+
+            Co-ord Sets
+
+        </button>
+
+    </div>
+
+
+
+    <!-- PRODUCT COUNT -->
+
+    <p class="product-count">
+
+        Showing
+        <span id="product-count">7</span>
+        products
+
+    </p>
+
+
+
+    <!-- PRODUCTS -->
+
+    <div class="shop-products">
+
+
+        <!-- PRODUCT 1 -->
+
+        <div
+            class="product"
+            data-category="kurtis"
+            data-name="Elegant Kurti"
+            onclick="window.location.href='product.html?id=kurti1'"
+        >
+
+            <div class="product-image">
+                Product Image
+            </div>
+
+            <h3>
+                Elegant Kurti
+            </h3>
+
+            <p>
+                ₹1,299
+            </p>
+
+            <button
+                onclick="event.stopPropagation(); window.location.href='product.html?id=kurti1'">
+
+                View Product
+
+            </button>
+
+        </div>
+
+
+
+        <!-- PRODUCT 2 -->
+
+        <div
+            class="product"
+            data-category="dresses"
+            data-name="Floral Dress"
+            onclick="window.location.href='product.html?id=dress1'"
+        >
+
+            <div class="product-image">
+                Product Image
+            </div>
+
+            <h3>
+                Floral Dress
+            </h3>
+
+            <p>
+                ₹1,599
+            </p>
+
+            <button
+                onclick="event.stopPropagation(); window.location.href='product.html?id=dress1'">
+
+                View Product
+
+            </button>
+
+        </div>
+
+
+
+        <!-- PRODUCT 3 -->
+
+        <div
+            class="product"
+            data-category="sarees"
+            data-name="Designer Saree"
+            onclick="window.location.href='product.html?id=saree1'"
+        >
+
+            <div class="product-image">
+                Product Image
+            </div>
+
+            <h3>
+                Designer Saree
+            </h3>
+
+            <p>
+                ₹1,999
+            </p>
+
+            <button
+                onclick="event.stopPropagation(); window.location.href='product.html?id=saree1'">
+
+                View Product
+
+            </button>
+
+        </div>
+
+
+
+        <!-- PRODUCT 4 -->
+
+        <div
+            class="product"
+            data-category="kurtis"
+            data-name="Casual Kurti"
+            onclick="window.location.href='product.html?id=kurti2'"
+        >
+
+            <div class="product-image">
+                Product Image
+            </div>
+
+            <h3>
+                Casual Kurti
+            </h3>
+
+            <p>
+                ₹999
+            </p>
+
+            <button
+                onclick="event.stopPropagation(); window.location.href='product.html?id=kurti2'">
+
+                View Product
+
+            </button>
+
+        </div>
+
+
+
+        <!-- PRODUCT 5 -->
+
+        <div
+            class="product"
+            data-category="dresses"
+            data-name="Party Wear Dress"
+            onclick="window.location.href='product.html?id=dress2'"
+        >
+
+            <div class="product-image">
+                Product Image
+            </div>
+
+            <h3>
+                Party Wear Dress
+            </h3>
+
+            <p>
+                ₹1,899
+            </p>
+
+            <button
+                onclick="event.stopPropagation(); window.location.href='product.html?id=dress2'">
+
+                View Product
+
+            </button>
+
+        </div>
+
+
+
+        <!-- PRODUCT 6 -->
+
+        <div
+            class="product"
+            data-category="sarees"
+            data-name="Premium Saree"
+            onclick="window.location.href='product.html?id=saree2'"
+        >
+
+            <div class="product-image">
+                Product Image
+            </div>
+
+            <h3>
+                Premium Saree
+            </h3>
+
+            <p>
+                ₹2,499
+            </p>
+
+            <button
+                onclick="event.stopPropagation(); window.location.href='product.html?id=saree2'">
+
+                View Product
+
+            </button>
+
+        </div>
+
+
+
+        <!-- PRODUCT 7 -->
+
+        <div
+            class="product"
+            data-category="co-ords"
+            data-name="Elegant Co-ord Set"
+            onclick="window.location.href='product.html?id=coord1'"
+        >
+
+            <div class="product-image">
+                Product Image
+            </div>
+
+            <h3>
+                Elegant Co-ord Set
+            </h3>
+
+            <p>
+                ₹1,799
+            </p>
+
+            <button
+                onclick="event.stopPropagation(); window.location.href='product.html?id=coord1'">
+
+                View Product
+
+            </button>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <h2>
+        MY BRAND
+    </h2>
+
+    <p>
+        Fashion made for you.
+    </p>
+
+
+    <div class="footer-links">
+
+        <a href="about.html">
+            About
+        </a>
+
+        <a href="contact.html">
+            Contact
+        </a>
+
+    </div>
+
+
+    <p class="copyright">
+
+        © 2026 My Brand.
+        All Rights Reserved.
+
+    </p>
+
+</footer>
+
+
+
+<script src="js/shop.js"></script>
+
+
+<script>
+
+function openProfile() {
+
+    document
+        .getElementById("profile-panel")
+        .classList.add("active");
+
+}
+
+
+function closeProfile() {
+
+    document
+        .getElementById("profile-panel")
+        .classList.remove("active");
+
+}
+
+</script>
+
+
+</body>
+
+</html>
