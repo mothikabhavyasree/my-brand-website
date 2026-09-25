@@ -8,18 +8,218 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
-    <title>My Orders | My Brand</title>
+    <title>My Clothing Brand</title>
 
     <link rel="stylesheet"
           href="css/style.css">
+
+    <style>
+
+        /* PROFILE DROPDOWN */
+
+        .header-icons {
+            position: relative;
+        }
+
+        .profile-icon {
+            border: none;
+            background: transparent;
+            padding: 0;
+            margin: 0;
+            font-size: 21px;
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        .profile-panel {
+            position: absolute !important;
+
+            top: 38px !important;
+            right: 0 !important;
+
+            width: 260px !important;
+            height: auto !important;
+
+            max-width: 260px !important;
+
+            background: white;
+
+            border: 1px solid #eeeeee;
+            border-radius: 8px;
+
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+
+            overflow: hidden;
+
+            opacity: 0;
+            visibility: hidden;
+
+            transform: translateY(-8px);
+
+            transition: 0.2s ease;
+
+            z-index: 99999;
+        }
+
+        .profile-panel.active {
+            opacity: 1 !important;
+            visibility: visible !important;
+
+            transform: translateY(0);
+        }
+
+        .profile-dropdown-header {
+            display: flex;
+
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 16px;
+
+            border-bottom: 1px solid #eeeeee;
+        }
+
+        .profile-user {
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+        }
+
+        .profile-small-avatar {
+            width: 38px;
+            height: 38px;
+
+            border-radius: 50%;
+
+            background: #f3efec;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            font-size: 18px;
+        }
+
+        .profile-user strong {
+            display: block;
+
+            font-family: Georgia, "Times New Roman", serif;
+
+            font-size: 15px;
+
+            font-weight: normal;
+        }
+
+        .profile-user small {
+            display: block;
+
+            margin-top: 3px;
+
+            color: #888;
+
+            font-size: 10px;
+        }
+
+        .profile-close {
+            border: none;
+
+            background: transparent;
+
+            padding: 0;
+
+            margin: 0;
+
+            font-size: 23px;
+
+            color: #555;
+
+            cursor: pointer;
+        }
+
+        .profile-close:hover {
+            background: transparent;
+
+            color: #8c6654;
+        }
+
+        .profile-menu {
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            padding: 13px 16px;
+
+            text-decoration: none;
+
+            color: #333;
+
+            border-bottom: 1px solid #f1f1f1;
+        }
+
+        .profile-menu:last-child {
+            border-bottom: none;
+        }
+
+        .profile-menu-icon {
+            width: 30px;
+            height: 30px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            background: #f7f4f1;
+
+            border-radius: 5px;
+
+            font-size: 14px;
+        }
+
+        .profile-menu-text {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 2px;
+        }
+
+        .profile-menu-text strong {
+            font-size: 12px;
+
+            font-weight: 500;
+        }
+
+        .profile-menu-text small {
+            font-size: 10px;
+
+            color: #999;
+        }
+
+        .profile-menu:hover {
+            background: #faf8f6;
+
+            color: #8c6654;
+        }
+
+        /* REMOVE OLD OVERLAY */
+
+        .profile-overlay {
+            display: none !important;
+        }
+
+    </style>
 
 </head>
 
 
 <body>
 
-
-<!-- HEADER -->
 
 <header>
 
@@ -54,7 +254,6 @@
 
 
     <div class="header-icons">
-
 
         <!-- CART -->
 
@@ -121,8 +320,6 @@
             </div>
 
 
-            <!-- PROFILE -->
-
             <a href="profile.html"
                class="profile-menu">
 
@@ -145,7 +342,7 @@
             </a>
 
 
-            <!-- ORDERS -->
+            <!-- MY ORDERS -->
 
             <a href="orders.html"
                class="profile-menu">
@@ -169,8 +366,6 @@
             </a>
 
 
-            <!-- SHOPPING BAG -->
-
             <a href="cart.html"
                class="profile-menu">
 
@@ -192,8 +387,6 @@
 
             </a>
 
-
-            <!-- CONTACT -->
 
             <a href="contact.html"
                class="profile-menu">
@@ -225,26 +418,102 @@
 
 
 
-<!-- ORDERS PAGE -->
+<section class="hero">
 
-<section class="orders-page">
-
-    <div class="orders-container">
-
+    <div class="hero-content">
 
         <p class="small-title">
-            MY ACCOUNT
+            NEW COLLECTION
         </p>
 
-
         <h1>
-            My Orders
+            Style That<br>
+            Speaks For You
         </h1>
 
+        <p class="description">
 
-        <div class="orders-card">
+            Discover elegant styles,
+            beautiful designs and
+            fashion made for you.
 
-            <!-- ORDERS WILL BE DISPLAYED HERE -->
+        </p>
+
+        <button
+            onclick="window.location.href='shop.html'">
+
+            SHOP NOW
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<section class="categories">
+
+    <h2>
+        Shop By Category
+    </h2>
+
+
+    <div class="category-container">
+
+
+        <div class="category"
+             onclick="window.location.href='shop.html?category=sarees'">
+
+            <div class="category-image">
+                Sarees
+            </div>
+
+            <h3>
+                Sarees
+            </h3>
+
+        </div>
+
+
+        <div class="category"
+             onclick="window.location.href='shop.html?category=kurtis'">
+
+            <div class="category-image">
+                Kurtis
+            </div>
+
+            <h3>
+                Kurtis
+            </h3>
+
+        </div>
+
+
+        <div class="category"
+             onclick="window.location.href='shop.html?category=dresses'">
+
+            <div class="category-image">
+                Dresses
+            </div>
+
+            <h3>
+                Dresses
+            </h3>
+
+        </div>
+
+
+        <div class="category"
+             onclick="window.location.href='shop.html?category=co-ords'">
+
+            <div class="category-image">
+                Co-ords
+            </div>
+
+            <h3>
+                Co-ord Sets
+            </h3>
 
         </div>
 
@@ -255,7 +524,97 @@
 
 
 
-<!-- FOOTER -->
+<section class="products">
+
+    <p class="small-title">
+        OUR COLLECTION
+    </p>
+
+    <h2>
+        New Arrivals
+    </h2>
+
+
+    <div class="product-container">
+
+
+        <div class="product">
+
+            <div class="product-image">
+                Product Image
+            </div>
+
+            <h3>
+                Elegant Kurti
+            </h3>
+
+            <p>
+                ₹1,299
+            </p>
+
+            <button
+                onclick="window.location.href='product.html?id=kurti1'">
+
+                View Product
+
+            </button>
+
+        </div>
+
+
+        <div class="product">
+
+            <div class="product-image">
+                Product Image
+            </div>
+
+            <h3>
+                Floral Dress
+            </h3>
+
+            <p>
+                ₹1,599
+            </p>
+
+            <button
+                onclick="window.location.href='product.html?id=dress1'">
+
+                View Product
+
+            </button>
+
+        </div>
+
+
+        <div class="product">
+
+            <div class="product-image">
+                Product Image
+            </div>
+
+            <h3>
+                Designer Saree
+            </h3>
+
+            <p>
+                ₹1,999
+            </p>
+
+            <button
+                onclick="window.location.href='product.html?id=saree1'">
+
+                View Product
+
+            </button>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
 
 <footer>
 
@@ -282,17 +641,12 @@
 
 
     <p class="copyright">
-
-        © 2026 My Brand.
-        All Rights Reserved.
-
+        © 2026 My Brand. All Rights Reserved.
     </p>
 
 </footer>
 
 
-
-<!-- PROFILE JAVASCRIPT -->
 
 <script>
 
@@ -314,11 +668,6 @@ function closeProfile() {
 }
 
 </script>
-
-
-<!-- ORDERS JAVASCRIPT -->
-
-<script src="js/orders.js"></script>
 
 
 </body>
