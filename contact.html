@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Contact Us | My Brand</title>
+
+    <link rel="stylesheet"
+          href="css/style.css">
+
+</head>
+
+<body>
+
+
+<!-- HEADER -->
+
+<header>
+
+    <div class="logo">
+        MY BRAND
+    </div>
+
+
+    <nav>
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="shop.html">
+            Shop
+        </a>
+
+        <a href="shop.html">
+            New Arrivals
+        </a>
+
+        <a href="about.html">
+            About
+        </a>
+
+        <a href="contact.html">
+            Contact
+        </a>
+
+    </nav>
+
+
+    <div class="header-icons">
+
+        <!-- CART -->
+
+        <a href="cart.html"
+           class="cart-icon">
+
+            <img
+                src="images/fashion-cart.png"
+                alt="Shopping Cart"
+            >
+
+        </a>
+
+
+        <!-- PROFILE -->
+
+        <button
+            class="profile-icon"
+            onclick="openProfile()">
+
+            👤
+
+        </button>
+
+
+        <!-- PROFILE DROPDOWN -->
+
+        <div
+            id="profile-panel"
+            class="profile-panel">
+
+
+            <div class="profile-dropdown-header">
+
+                <div class="profile-user">
+
+                    <div class="profile-small-avatar">
+                        👤
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            My Account
+                        </strong>
+
+                        <small>
+                            Welcome to My Brand
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    class="profile-close"
+                    onclick="closeProfile()">
+
+                    ×
+
+                </button>
+
+            </div>
+
+
+            <a href="profile.html"
+               class="profile-menu">
+
+                <span class="profile-menu-icon">
+                    👤
+                </span>
+
+                <span class="profile-menu-text">
+
+                    <strong>
+                        Profile
+                    </strong>
+
+                    <small>
+                        My account
+                    </small>
+
+                </span>
+
+            </a>
+
+
+            <a href="cart.html"
+               class="profile-menu">
+
+                <span class="profile-menu-icon">
+                    🛒
+                </span>
+
+                <span class="profile-menu-text">
+
+                    <strong>
+                        My Shopping Bag
+                    </strong>
+
+                    <small>
+                        View your products
+                    </small>
+
+                </span>
+
+            </a>
+
+
+            <a href="contact.html"
+               class="profile-menu">
+
+                <span class="profile-menu-icon">
+                    💬
+                </span>
+
+                <span class="profile-menu-text">
+
+                    <strong>
+                        Contact Us
+                    </strong>
+
+                    <small>
+                        We're here to help
+                    </small>
+
+                </span>
+
+            </a>
+
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<!-- CONTACT HERO -->
+
+<section class="contact-hero">
+
+    <div>
+
+        <p class="small-title">
+            GET IN TOUCH
+        </p>
+
+        <h1>
+            We'd Love To<br>
+            Hear From You
+        </h1>
+
+        <p>
+            Have a question about our collection,
+            an order or anything else?
+            We're here to help.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- CONTACT SECTION -->
+
+<section class="contact-section">
+
+    <div class="contact-container">
+
+
+        <!-- CONTACT INFORMATION -->
+
+        <div class="contact-info">
+
+            <p class="small-title">
+                CONTACT US
+            </p>
+
+            <h2>
+                Let's Talk
+            </h2>
+
+            <p class="contact-intro">
+
+                We're always happy to hear from
+                you. Reach out to us and we'll
+                get back to you as soon as possible.
+
+            </p>
+
+
+            <div class="contact-detail">
+
+                <span>
+                    PHONE
+                </span>
+
+                <p>
+                    +91 80082 55288
+                </p>
+
+            </div>
+
+
+            <div class="contact-detail">
+
+                <span>
+                    WHATSAPP
+                </span>
+
+                <p>
+                    +91 80082 55288
+                </p>
+
+            </div>
+
+
+            <div class="contact-detail">
+
+                <span>
+                    LOCATION
+                </span>
+
+                <p>
+                    Bangalore, India
+                </p>
+
+            </div>
+
+
+            <div class="contact-detail">
+
+                <span>
+                    INSTAGRAM
+                </span>
+
+                <p>
+                    @mybrand
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- CONTACT FORM -->
+
+        <div class="contact-form-box">
+
+            <h2>
+                Send Us A Message
+            </h2>
+
+            <p>
+                Fill in the details below and
+                we'll get back to you.
+            </p>
+
+
+            <form id="contact-form">
+
+
+                <div class="form-group">
+
+                    <label for="name">
+                        Your Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="Enter your name"
+                        required>
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Enter your email">
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label for="phone">
+                        Phone Number
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        placeholder="Enter your phone number">
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label for="message">
+                        Message
+                    </label>
+
+                    <textarea
+                        id="message"
+                        rows="6"
+                        placeholder="How can we help you?"
+                        required></textarea>
+
+                </div>
+
+
+
+                <button type="submit">
+                    SEND MESSAGE
+                </button>
+
+
+            </form>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <h2>
+        MY BRAND
+    </h2>
+
+    <p>
+        Fashion made for you.
+    </p>
+
+
+    <div class="footer-links">
+
+        <a href="#">
+            Instagram
+        </a>
+
+        <a href="contact.html">
+            Contact
+        </a>
+
+    </div>
+
+
+    <p class="copyright">
+
+        © 2026 My Brand.
+        All Rights Reserved.
+
+    </p>
+
+</footer>
+
+
+
+<!-- PROFILE + WHATSAPP JAVASCRIPT -->
+
+<script>
+
+function openProfile() {
+
+    document
+        .getElementById("profile-panel")
+        .classList.add("active");
+
+}
+
+
+function closeProfile() {
+
+    document
+        .getElementById("profile-panel")
+        .classList.remove("active");
+
+}
+
+
+
+/* CONTACT FORM → WHATSAPP */
+
+document
+    .getElementById("contact-form")
+    .addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+
+        const name =
+            document.getElementById("name").value.trim();
+
+
+        const email =
+            document.getElementById("email").value.trim();
+
+
+        const phone =
+            document.getElementById("phone").value.trim();
+
+
+        const message =
+            document.getElementById("message").value.trim();
+
+
+        const whatsappMessage =
+            "Hello My Brand!%0A%0A" +
+
+            "Name: " +
+            encodeURIComponent(name) +
+
+            "%0A" +
+
+            "Email: " +
+            encodeURIComponent(email || "Not provided") +
+
+            "%0A" +
+
+            "Phone: " +
+            encodeURIComponent(phone || "Not provided") +
+
+            "%0A%0A" +
+
+            "Message:%0A" +
+            encodeURIComponent(message);
+
+
+        const whatsappNumber =
+            "918008255288";
+
+
+        const whatsappURL =
+            "https://wa.me/" +
+            whatsappNumber +
+            "?text=" +
+            whatsappMessage;
+
+
+        window.open(
+            whatsappURL,
+            "_blank"
+        );
+
+    });
+
+</script>
+
+
+</body>
+
+</html>
