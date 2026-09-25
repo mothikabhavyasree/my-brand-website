@@ -8,14 +8,16 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
-    <title>My Clothing Brand</title>
+    <title>My Orders | My Clothing Brand</title>
 
     <link rel="stylesheet"
           href="css/style.css">
 
     <style>
 
-        /* PROFILE DROPDOWN */
+        /* =========================================
+           PROFILE DROPDOWN
+           ========================================= */
 
         .header-icons {
             position: relative;
@@ -27,138 +29,124 @@
             padding: 0;
             margin: 0;
             font-size: 21px;
-            cursor: pointer;
             line-height: 1;
+            cursor: pointer;
+            color: #2b2522;
+        }
+
+        .profile-icon:hover {
+            background: transparent;
+            color: #8c6654;
         }
 
         .profile-panel {
-            position: absolute !important;
-
-            top: 38px !important;
-            right: 0 !important;
-
-            width: 260px !important;
-            height: auto !important;
-
-            max-width: 260px !important;
-
-            background: white;
-
-            border: 1px solid #eeeeee;
+            position: absolute;
+            top: 38px;
+            right: 0;
+            width: 300px;
+            max-width: calc(100vw - 30px);
+            height: auto;
+            background: #ffffff;
+            border: 1px solid #e8e3de;
             border-radius: 8px;
-
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
             overflow: hidden;
-
             opacity: 0;
             visibility: hidden;
-
-            transform: translateY(-8px);
-
-            transition: 0.2s ease;
-
+            pointer-events: none;
+            transform: translateY(-6px);
+            transition:
+                opacity 0.2s ease,
+                transform 0.2s ease,
+                visibility 0.2s ease;
             z-index: 99999;
         }
 
         .profile-panel.active {
-            opacity: 1 !important;
-            visibility: visible !important;
-
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
             transform: translateY(0);
         }
 
         .profile-dropdown-header {
             display: flex;
-
             align-items: center;
             justify-content: space-between;
-
-            padding: 16px;
-
+            padding: 16px 18px;
             border-bottom: 1px solid #eeeeee;
         }
 
         .profile-user {
             display: flex;
-
             align-items: center;
-
-            gap: 10px;
+            gap: 11px;
+            min-width: 0;
         }
 
         .profile-small-avatar {
-            width: 38px;
-            height: 38px;
-
+            width: 40px;
+            height: 40px;
+            flex: 0 0 40px;
             border-radius: 50%;
-
             background: #f3efec;
-
             display: flex;
-
             align-items: center;
             justify-content: center;
-
             font-size: 18px;
         }
 
         .profile-user strong {
             display: block;
-
             font-family: Georgia, "Times New Roman", serif;
-
-            font-size: 15px;
-
+            font-size: 16px;
             font-weight: normal;
+            line-height: 20px;
         }
 
         .profile-user small {
             display: block;
-
-            margin-top: 3px;
-
+            margin-top: 2px;
             color: #888;
-
-            font-size: 10px;
+            font-size: 11px;
+            line-height: 15px;
         }
 
         .profile-close {
             border: none;
-
             background: transparent;
-
-            padding: 0;
-
+            width: 28px;
+            height: 28px;
             margin: 0;
-
-            font-size: 23px;
-
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: #555;
-
+            font-size: 24px;
+            line-height: 1;
             cursor: pointer;
+            flex: 0 0 28px;
         }
 
         .profile-close:hover {
             background: transparent;
-
             color: #8c6654;
         }
 
         .profile-menu {
-            display: flex;
-
+            display: grid;
+            grid-template-columns: 34px minmax(0, 1fr);
             align-items: center;
-
-            gap: 12px;
-
-            padding: 13px 16px;
-
+            column-gap: 12px;
+            width: 100%;
+            min-height: 60px;
+            padding: 12px 18px;
+            margin: 0;
+            box-sizing: border-box;
             text-decoration: none;
-
-            color: #333;
-
-            border-bottom: 1px solid #f1f1f1;
+            color: #2b2522;
+            border-bottom: 1px solid #f1efed;
         }
 
         .profile-menu:last-child {
@@ -166,51 +154,334 @@
         }
 
         .profile-menu-icon {
-            width: 30px;
-            height: 30px;
-
+            width: 34px;
+            height: 34px;
             display: flex;
-
             align-items: center;
             justify-content: center;
-
             background: #f7f4f1;
-
-            border-radius: 5px;
-
-            font-size: 14px;
+            border-radius: 6px;
+            font-size: 15px;
         }
 
         .profile-menu-text {
             display: flex;
-
             flex-direction: column;
-
-            gap: 2px;
+            justify-content: center;
+            min-width: 0;
+            margin: 0;
+            padding: 0;
         }
 
         .profile-menu-text strong {
-            font-size: 12px;
-
+            display: block;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            font-size: 13px;
             font-weight: 500;
+            line-height: 18px;
         }
 
         .profile-menu-text small {
-            font-size: 10px;
-
+            display: block;
+            margin: 0;
             color: #999;
+            font-family: Arial, sans-serif;
+            font-size: 11px;
+            line-height: 15px;
         }
 
         .profile-menu:hover {
             background: #faf8f6;
-
             color: #8c6654;
         }
 
-        /* REMOVE OLD OVERLAY */
-
         .profile-overlay {
             display: none !important;
+        }
+
+
+        /* =========================================
+           ORDERS PAGE
+           ========================================= */
+
+        .orders-page {
+            min-height: 70vh;
+            padding: 70px 20px;
+            background: #faf8f6;
+        }
+
+        .orders-container {
+            width: 100%;
+            max-width: 850px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .orders-container .small-title {
+            margin: 0 0 10px;
+            color: #8c6654;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+
+        .orders-container h1 {
+            margin: 0 0 35px;
+            color: #2b2522;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 42px;
+            font-weight: normal;
+        }
+
+        .orders-card {
+            width: 100%;
+            max-width: 650px;
+            margin: 0 auto;
+            padding: 55px 40px;
+            box-sizing: border-box;
+            background: #ffffff;
+            border: 1px solid #e8e3de;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+        }
+
+        .orders-empty-icon {
+            width: 76px;
+            height: 76px;
+            margin: 0 auto 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f3efec;
+            border-radius: 50%;
+            font-size: 32px;
+        }
+
+        .orders-card h2 {
+            margin: 0 0 10px;
+            color: #2b2522;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 25px;
+            font-weight: normal;
+        }
+
+        .orders-card p {
+            max-width: 430px;
+            margin: 0 auto 28px;
+            color: #888;
+            font-size: 14px;
+            line-height: 22px;
+        }
+
+        .orders-shop-button {
+            display: inline-block;
+            padding: 13px 28px;
+            background: #2b2522;
+            border: 1px solid #2b2522;
+            border-radius: 5px;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 13px;
+            transition: 0.2s ease;
+        }
+
+        .orders-shop-button:hover {
+            background: #8c6654;
+            border-color: #8c6654;
+        }
+
+
+        /* =========================================
+           ORDER CARDS
+           ========================================= */
+
+        .order-card {
+            width: 100%;
+            margin-bottom: 20px;
+            padding: 0;
+            background: #ffffff;
+            border: 1px solid #e8e3de;
+            border-radius: 8px;
+            overflow: hidden;
+            text-align: left;
+        }
+
+        .order-card:last-child {
+            margin-bottom: 0;
+        }
+
+        .order-header {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            padding: 20px 24px;
+            background: #faf8f6;
+            border-bottom: 1px solid #eee9e5;
+        }
+
+        .order-header div {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .order-header span {
+            color: #999;
+            font-family: Arial, sans-serif;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 1.2px;
+        }
+
+        .order-header strong {
+            color: #2b2522;
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .order-status {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 24px;
+            border-bottom: 1px solid #eee9e5;
+        }
+
+        .order-status span:first-child {
+            color: #6f806b;
+            font-family: Arial, sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .order-status span:last-child {
+            color: #777;
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+        }
+
+        .order-items {
+            padding: 5px 24px;
+        }
+
+        .order-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            padding: 18px 0;
+            border-bottom: 1px solid #f0edeb;
+        }
+
+        .order-item:last-child {
+            border-bottom: none;
+        }
+
+        .order-item div {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .order-item strong {
+            color: #2b2522;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .order-item small {
+            color: #999;
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+        }
+
+        .order-total {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 24px;
+            background: #faf8f6;
+            border-top: 1px solid #eee9e5;
+        }
+
+        .order-total span {
+            color: #555;
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+        }
+
+        .order-total strong {
+            color: #2b2522;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 18px;
+            font-weight: normal;
+        }
+
+
+        /* =========================================
+           MOBILE
+           ========================================= */
+
+        @media (max-width: 600px) {
+
+            .profile-panel {
+                width: 280px;
+                max-width: calc(100vw - 24px);
+            }
+
+            .profile-dropdown-header {
+                padding: 15px 16px;
+            }
+
+            .profile-menu {
+                padding: 12px 16px;
+            }
+
+            .orders-page {
+                padding: 50px 15px;
+            }
+
+            .orders-container h1 {
+                font-size: 34px;
+                margin-bottom: 25px;
+            }
+
+            .orders-card {
+                padding: 40px 20px;
+            }
+
+            .orders-card h2 {
+                font-size: 22px;
+            }
+
+            .order-header {
+                flex-direction: column;
+                gap: 12px;
+                padding: 18px;
+            }
+
+            .order-status {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 8px;
+                padding: 14px 18px;
+            }
+
+            .order-items {
+                padding: 5px 18px;
+            }
+
+            .order-item {
+                align-items: flex-start;
+            }
+
+            .order-total {
+                padding: 16px 18px;
+            }
         }
 
     </style>
@@ -221,453 +492,313 @@
 <body>
 
 
-<header>
+    <!-- =========================================
+         HEADER
+         ========================================= -->
 
-    <div class="logo">
-        MY BRAND
-    </div>
+    <header class="site-header">
 
+        <div class="header-container">
 
-    <nav>
+            <a href="index.html"
+               class="logo">
 
-        <a href="index.html">
-            Home
-        </a>
+                My Brand
 
-        <a href="shop.html">
-            Shop
-        </a>
-
-        <a href="shop.html">
-            New Arrivals
-        </a>
-
-        <a href="about.html">
-            About
-        </a>
-
-        <a href="contact.html">
-            Contact
-        </a>
-
-    </nav>
+            </a>
 
 
-    <div class="header-icons">
+            <nav class="main-nav">
 
-        <!-- CART -->
+                <a href="index.html">
+                    Home
+                </a>
 
-        <a href="cart.html"
-           class="cart-icon">
+                <a href="shop.html">
+                    Shop
+                </a>
 
-            <img
-                src="images/fashion-cart.png"
-                alt="Shopping Cart"
-            >
+                <a href="about.html">
+                    About
+                </a>
 
-        </a>
+                <a href="contact.html">
+                    Contact
+                </a>
 
-
-        <!-- PROFILE -->
-
-        <button
-            class="profile-icon"
-            onclick="openProfile()">
-
-            👤
-
-        </button>
+            </nav>
 
 
-        <!-- PROFILE DROPDOWN -->
-
-        <div
-            id="profile-panel"
-            class="profile-panel">
+            <div class="header-icons">
 
 
-            <div class="profile-dropdown-header">
+                <!-- PROFILE -->
 
-                <div class="profile-user">
+                <button
+                    class="profile-icon"
+                    id="profile-button"
+                    type="button"
+                    aria-label="Profile">
 
-                    <div class="profile-small-avatar">
-                        👤
+                    👤
+
+                </button>
+
+
+                <!-- PROFILE DROPDOWN -->
+
+                <div
+                    class="profile-panel"
+                    id="profile-panel">
+
+
+                    <div class="profile-dropdown-header">
+
+                        <div class="profile-user">
+
+                            <div class="profile-small-avatar">
+                                👤
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    My Account
+                                </strong>
+
+                                <small>
+                                    Welcome to My Brand
+                                </small>
+
+                            </div>
+
+                        </div>
+
+
+                        <button
+                            class="profile-close"
+                            id="profile-close"
+                            type="button">
+
+                            ×
+
+                        </button>
+
                     </div>
 
-                    <div>
 
-                        <strong>
-                            My Account
-                        </strong>
+                    <a
+                        href="profile.html"
+                        class="profile-menu">
 
-                        <small>
-                            Welcome to My Brand
-                        </small>
+                        <span class="profile-menu-icon">
+                            👤
+                        </span>
 
-                    </div>
+                        <span class="profile-menu-text">
+
+                            <strong>
+                                Profile
+                            </strong>
+
+                            <small>
+                                View your profile
+                            </small>
+
+                        </span>
+
+                    </a>
+
+
+                    <a
+                        href="orders.html"
+                        class="profile-menu">
+
+                        <span class="profile-menu-icon">
+                            📦
+                        </span>
+
+                        <span class="profile-menu-text">
+
+                            <strong>
+                                My Orders
+                            </strong>
+
+                            <small>
+                                View your orders
+                            </small>
+
+                        </span>
+
+                    </a>
+
+
+                    <a
+                        href="cart.html"
+                        class="profile-menu">
+
+                        <span class="profile-menu-icon">
+                            🛍️
+                        </span>
+
+                        <span class="profile-menu-text">
+
+                            <strong>
+                                My Shopping Bag
+                            </strong>
+
+                            <small>
+                                View items in your bag
+                            </small>
+
+                        </span>
+
+                    </a>
+
+
+                    <a
+                        href="contact.html"
+                        class="profile-menu">
+
+                        <span class="profile-menu-icon">
+                            💬
+                        </span>
+
+                        <span class="profile-menu-text">
+
+                            <strong>
+                                Contact Us
+                            </strong>
+
+                            <small>
+                                Get in touch with us
+                            </small>
+
+                        </span>
+
+                    </a>
 
                 </div>
 
 
-                <button
-                    class="profile-close"
-                    onclick="closeProfile()">
-
-                    ×
-
-                </button>
-
             </div>
-
-
-            <a href="profile.html"
-               class="profile-menu">
-
-                <span class="profile-menu-icon">
-                    👤
-                </span>
-
-                <span class="profile-menu-text">
-
-                    <strong>
-                        Profile
-                    </strong>
-
-                    <small>
-                        My account
-                    </small>
-
-                </span>
-
-            </a>
-
-
-            <!-- MY ORDERS -->
-
-            <a href="orders.html"
-               class="profile-menu">
-
-                <span class="profile-menu-icon">
-                    📦
-                </span>
-
-                <span class="profile-menu-text">
-
-                    <strong>
-                        My Orders
-                    </strong>
-
-                    <small>
-                        View your orders
-                    </small>
-
-                </span>
-
-            </a>
-
-
-            <a href="cart.html"
-               class="profile-menu">
-
-                <span class="profile-menu-icon">
-                    🛒
-                </span>
-
-                <span class="profile-menu-text">
-
-                    <strong>
-                        My Shopping Bag
-                    </strong>
-
-                    <small>
-                        View your products
-                    </small>
-
-                </span>
-
-            </a>
-
-
-            <a href="contact.html"
-               class="profile-menu">
-
-                <span class="profile-menu-icon">
-                    💬
-                </span>
-
-                <span class="profile-menu-text">
-
-                    <strong>
-                        Contact Us
-                    </strong>
-
-                    <small>
-                        We're here to help
-                    </small>
-
-                </span>
-
-            </a>
-
 
         </div>
 
-    </div>
-
-</header>
+    </header>
 
 
 
-<section class="hero">
+    <!-- =========================================
+         ORDERS PAGE
+         ========================================= -->
 
-    <div class="hero-content">
+    <main class="orders-page">
 
-        <p class="small-title">
-            NEW COLLECTION
-        </p>
+        <div class="orders-container">
 
-        <h1>
-            Style That<br>
-            Speaks For You
-        </h1>
-
-        <p class="description">
-
-            Discover elegant styles,
-            beautiful designs and
-            fashion made for you.
-
-        </p>
-
-        <button
-            onclick="window.location.href='shop.html'">
-
-            SHOP NOW
-
-        </button>
-
-    </div>
-
-</section>
-
-
-
-<section class="categories">
-
-    <h2>
-        Shop By Category
-    </h2>
-
-
-    <div class="category-container">
-
-
-        <div class="category"
-             onclick="window.location.href='shop.html?category=sarees'">
-
-            <div class="category-image">
-                Sarees
-            </div>
-
-            <h3>
-                Sarees
-            </h3>
-
-        </div>
-
-
-        <div class="category"
-             onclick="window.location.href='shop.html?category=kurtis'">
-
-            <div class="category-image">
-                Kurtis
-            </div>
-
-            <h3>
-                Kurtis
-            </h3>
-
-        </div>
-
-
-        <div class="category"
-             onclick="window.location.href='shop.html?category=dresses'">
-
-            <div class="category-image">
-                Dresses
-            </div>
-
-            <h3>
-                Dresses
-            </h3>
-
-        </div>
-
-
-        <div class="category"
-             onclick="window.location.href='shop.html?category=co-ords'">
-
-            <div class="category-image">
-                Co-ords
-            </div>
-
-            <h3>
-                Co-ord Sets
-            </h3>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-
-<section class="products">
-
-    <p class="small-title">
-        OUR COLLECTION
-    </p>
-
-    <h2>
-        New Arrivals
-    </h2>
-
-
-    <div class="product-container">
-
-
-        <div class="product">
-
-            <div class="product-image">
-                Product Image
-            </div>
-
-            <h3>
-                Elegant Kurti
-            </h3>
-
-            <p>
-                ₹1,299
+            <p class="small-title">
+                MY ACCOUNT
             </p>
 
-            <button
-                onclick="window.location.href='product.html?id=kurti1'">
-
-                View Product
-
-            </button>
-
-        </div>
+            <h1>
+                My Orders
+            </h1>
 
 
-        <div class="product">
+            <div class="orders-card">
 
-            <div class="product-image">
-                Product Image
+                <!-- ORDERS WILL APPEAR HERE -->
+
             </div>
 
-            <h3>
-                Floral Dress
-            </h3>
+        </div>
+
+    </main>
+
+
+
+    <!-- =========================================
+         FOOTER
+         ========================================= -->
+
+    <footer class="site-footer">
+
+        <div class="footer-container">
 
             <p>
-                ₹1,599
+                © 2026 My Brand. All rights reserved.
             </p>
-
-            <button
-                onclick="window.location.href='product.html?id=dress1'">
-
-                View Product
-
-            </button>
 
         </div>
 
-
-        <div class="product">
-
-            <div class="product-image">
-                Product Image
-            </div>
-
-            <h3>
-                Designer Saree
-            </h3>
-
-            <p>
-                ₹1,999
-            </p>
-
-            <button
-                onclick="window.location.href='product.html?id=saree1'">
-
-                View Product
-
-            </button>
-
-        </div>
-
-
-    </div>
-
-</section>
+    </footer>
 
 
 
-<footer>
+    <!-- =========================================
+         PROFILE SCRIPT
+         ========================================= -->
 
-    <h2>
-        MY BRAND
-    </h2>
+    <script>
 
-    <p>
-        Fashion made for you.
-    </p>
+        const profileButton =
+            document.getElementById("profile-button");
 
+        const profilePanel =
+            document.getElementById("profile-panel");
 
-    <div class="footer-links">
-
-        <a href="#">
-            Instagram
-        </a>
-
-        <a href="contact.html">
-            Contact
-        </a>
-
-    </div>
+        const profileClose =
+            document.getElementById("profile-close");
 
 
-    <p class="copyright">
-        © 2026 My Brand. All Rights Reserved.
-    </p>
+        profileButton.addEventListener(
+            "click",
+            function(event) {
 
-</footer>
+                event.stopPropagation();
 
+                profilePanel.classList.toggle("active");
 
-
-<script>
-
-function openProfile() {
-
-    document
-        .getElementById("profile-panel")
-        .classList.add("active");
-
-}
+            }
+        );
 
 
-function closeProfile() {
+        profileClose.addEventListener(
+            "click",
+            function() {
 
-    document
-        .getElementById("profile-panel")
-        .classList.remove("active");
+                profilePanel.classList.remove("active");
 
-}
+            }
+        );
 
-</script>
+
+        document.addEventListener(
+            "click",
+            function(event) {
+
+                if (
+                    !profilePanel.contains(event.target) &&
+                    event.target !== profileButton
+                ) {
+
+                    profilePanel.classList.remove("active");
+
+                }
+
+            }
+        );
+
+    </script>
+
+
+
+    <!-- =========================================
+         ORDERS JAVASCRIPT
+         ========================================= -->
+
+    <script src="js/orders.js"></script>
 
 
 </body>
