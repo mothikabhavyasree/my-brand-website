@@ -1,4 +1,6 @@
-// GET ORDERS
+// =========================================
+// GET SAVED ORDERS
+// =========================================
 
 const savedOrders =
     localStorage.getItem("orders");
@@ -9,13 +11,17 @@ const orders =
         : [];
 
 
+// =========================================
 // GET ORDERS CONTAINER
+// =========================================
 
 const ordersCard =
     document.querySelector(".orders-card");
 
 
+// =========================================
 // SHOW EMPTY ORDERS
+// =========================================
 
 if (orders.length === 0) {
 
@@ -47,7 +53,9 @@ if (orders.length === 0) {
 }
 
 
+// =========================================
 // SHOW ORDERS
+// =========================================
 
 else {
 
@@ -57,6 +65,10 @@ else {
 
         let itemsHTML = "";
 
+
+        // =====================================
+        // ORDER ITEMS
+        // =====================================
 
         order.items.forEach(function(item) {
 
@@ -68,23 +80,27 @@ else {
 
                 <div class="order-item">
 
-                    <div>
+                    <div class="order-item-details">
 
                         <strong>
                             ${item.name}
                         </strong>
 
-                        <small>
-                            Size: ${item.size}
-                        </small>
+                        <div class="order-item-info">
 
-                        <small>
-                            Quantity: ${item.quantity}
-                        </small>
+                            <span>
+                                Size: ${item.size}
+                            </span>
+
+                            <span>
+                                Quantity: ${item.quantity}
+                            </span>
+
+                        </div>
 
                     </div>
 
-                    <strong>
+                    <strong class="order-item-price">
                         ₹${itemTotal}
                     </strong>
 
@@ -95,13 +111,19 @@ else {
         });
 
 
+        // =====================================
+        // COMPLETE ORDER CARD
+        // =====================================
+
         ordersCard.innerHTML += `
 
             <div class="order-card">
 
+                <!-- ORDER HEADER -->
+
                 <div class="order-header">
 
-                    <div>
+                    <div class="order-header-left">
 
                         <span>
                             ORDER ID
@@ -113,7 +135,8 @@ else {
 
                     </div>
 
-                    <div>
+
+                    <div class="order-header-right">
 
                         <span>
                             DATE
@@ -128,13 +151,15 @@ else {
                 </div>
 
 
+                <!-- ORDER STATUS -->
+
                 <div class="order-status">
 
-                    <span>
+                    <span class="order-status-main">
                         ORDER PLACED
                     </span>
 
-                    <span>
+                    <span class="order-payment">
                         ${order.paymentMethod === "online"
                             ? "Online Payment"
                             : "Cash on Delivery"}
@@ -143,12 +168,16 @@ else {
                 </div>
 
 
+                <!-- ORDER ITEMS -->
+
                 <div class="order-items">
 
                     ${itemsHTML}
 
                 </div>
 
+
+                <!-- ORDER TOTAL -->
 
                 <div class="order-total">
 
