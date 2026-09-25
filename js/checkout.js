@@ -136,11 +136,92 @@ checkoutForm.addEventListener(
         event.preventDefault();
 
 
+        // GET CUSTOMER NAME
+
         const name =
             document.getElementById(
                 "customer-name"
-            ).value;
+            ).value.trim();
 
+
+        // GET PAYMENT METHOD
+
+        const selectedPayment =
+            document.querySelector(
+                'input[name="payment"]:checked'
+            );
+
+
+        const paymentMethod =
+            selectedPayment
+                ? selectedPayment.value
+                : "cod";
+
+
+        // CALCULATE TOTAL
+
+        let grandTotal = 0;
+
+        cart.forEach(function(product) {
+
+            grandTotal +=
+                product.price *
+                product.quantity;
+
+        });
+
+
+        // CREATE ORDER ID
+
+        const orderId =
+            "ORD" +
+            Date.now();
+
+
+        // CREATE ORDER
+
+        const newOrder = {
+
+            orderId: orderId,
+
+            customerName: name,
+
+            paymentMethod: paymentMethod,
+
+            date: new Date().toLocaleString(),
+
+            items: cart,
+
+            total: grandTotal
+
+        };
+
+
+        // GET PREVIOUS ORDERS
+
+        const savedOrders =
+            localStorage.getItem("orders");
+
+        const orders =
+            savedOrders
+                ? JSON.parse(savedOrders)
+                : [];
+
+
+        // ADD NEW ORDER
+
+        orders.push(newOrder);
+
+
+        // SAVE ORDERS
+
+        localStorage.setItem(
+            "orders",
+            JSON.stringify(orders)
+        );
+
+
+        // SHOW SUCCESS MESSAGE
 
         alert(
             "Thank you, " +
@@ -148,6 +229,8 @@ checkoutForm.addEventListener(
             "! Your order has been placed."
         );
 
+
+        // CLEAR CART
 
         localStorage.removeItem(
             "cartProducts"
@@ -158,6 +241,8 @@ checkoutForm.addEventListener(
             "cartProduct"
         );
 
+
+        // GO TO SUCCESS PAGE
 
         window.location.href =
             "success.html";
