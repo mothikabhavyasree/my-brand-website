@@ -119,7 +119,7 @@
             </div>
 
 
-            <a href="#"
+            <a href="profile.html"
                class="profile-menu">
 
                 <span class="profile-menu-icon">
@@ -251,11 +251,11 @@
             <div class="contact-detail">
 
                 <span>
-                    EMAIL
+                    PHONE
                 </span>
 
                 <p>
-                    hello@mybrand.com
+                    +91 80082 55288
                 </p>
 
             </div>
@@ -264,11 +264,11 @@
             <div class="contact-detail">
 
                 <span>
-                    PHONE
+                    WHATSAPP
                 </span>
 
                 <p>
-                    +91 XXXXX XXXXX
+                    +91 80082 55288
                 </p>
 
             </div>
@@ -317,7 +317,7 @@
             </p>
 
 
-            <form>
+            <form id="contact-form">
 
 
                 <div class="form-group">
@@ -345,8 +345,7 @@
                     <input
                         type="email"
                         id="email"
-                        placeholder="Enter your email"
-                        required>
+                        placeholder="Enter your email">
 
                 </div>
 
@@ -436,7 +435,7 @@
 
 
 
-<!-- PROFILE JAVASCRIPT -->
+<!-- PROFILE + WHATSAPP JAVASCRIPT -->
 
 <script>
 
@@ -456,6 +455,73 @@ function closeProfile() {
         .classList.remove("active");
 
 }
+
+
+
+/* CONTACT FORM → WHATSAPP */
+
+document
+    .getElementById("contact-form")
+    .addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+
+        const name =
+            document.getElementById("name").value.trim();
+
+
+        const email =
+            document.getElementById("email").value.trim();
+
+
+        const phone =
+            document.getElementById("phone").value.trim();
+
+
+        const message =
+            document.getElementById("message").value.trim();
+
+
+        const whatsappMessage =
+            "Hello My Brand!%0A%0A" +
+
+            "Name: " +
+            encodeURIComponent(name) +
+
+            "%0A" +
+
+            "Email: " +
+            encodeURIComponent(email || "Not provided") +
+
+            "%0A" +
+
+            "Phone: " +
+            encodeURIComponent(phone || "Not provided") +
+
+            "%0A%0A" +
+
+            "Message:%0A" +
+            encodeURIComponent(message);
+
+
+        const whatsappNumber =
+            "918008255288";
+
+
+        const whatsappURL =
+            "https://wa.me/" +
+            whatsappNumber +
+            "?text=" +
+            whatsappMessage;
+
+
+        window.open(
+            whatsappURL,
+            "_blank"
+        );
+
+    });
 
 </script>
 
