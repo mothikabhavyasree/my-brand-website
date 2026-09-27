@@ -3792,3 +3792,117 @@ footer h2 {
 .order-total {
     padding: 18px 28px;
 }
+/* ========================================= */
+/* FINAL MOBILE HEADER FIX                   */
+/* ========================================= */
+
+@media (max-width: 768px) {
+
+    header {
+        position: relative;
+        height: auto;
+        min-height: 145px;
+        padding: 18px 20px 20px;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .logo {
+        font-size: 21px;
+        text-align: center;
+    }
+
+    nav {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 12px 18px;
+    }
+
+    nav a {
+        font-size: 12px;
+    }
+
+    .header-icons {
+        position: absolute !important;
+        top: 20px !important;
+        right: 20px !important;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .cart-icon {
+        width: 28px;
+        height: 28px;
+    }
+
+    .cart-icon img {
+        width: 24px;
+        height: 24px;
+    }
+
+    .profile-icon {
+        font-size: 21px;
+    }
+
+}
+/* ========================================= */
+/* FINAL MOBILE HEADER FIX                   */
+/* ========================================= */
+
+@media (max-width: 768px) {
+
+    header {
+        position: relative;
+        height: auto;
+        min-height: 145px;
+        padding: 18px 20px 20px;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .logo {
+        font-size: 21px;
+        text-align: center;
+    }
+
+    nav {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 12px 18px;
+    }
+
+    nav a {
+        font-size: 12px;
+    }
+
+    .header-icons {
+        position: absolute !important;
+        top: 20px !important;
+        right: 20px !important;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .cart-icon {
+        width: 28px;
+        height: 28px;
+    }
+
+    .cart-icon img {
+        width: 24px;
+        height: 24px;
+    }
+
+    .profile-icon {
+        font-size: 21px;
+    }
+
+}
