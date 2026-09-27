@@ -13,12 +13,52 @@
     <link rel="stylesheet"
           href="css/style.css">
 
+
+    <style>
+
+        /* ========================================= */
+        /* HEADER WISHLIST ICON                      */
+        /* ========================================= */
+
+        .header-wishlist {
+            width: 28px !important;
+            height: 28px !important;
+
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+
+            color: #e00000 !important;
+
+            text-decoration: none !important;
+
+            font-size: 24px !important;
+            line-height: 1 !important;
+
+            padding: 0 !important;
+            margin: 0 !important;
+
+            cursor: pointer;
+
+            transition: 0.3s ease;
+        }
+
+
+        .header-wishlist:hover {
+            color: #b00000 !important;
+            transform: scale(1.08);
+        }
+
+    </style>
+
 </head>
 
 <body>
 
 
-<!-- HEADER -->
+<!-- ========================================= -->
+<!-- HEADER                                    -->
+<!-- ========================================= -->
 
 <header>
 
@@ -54,6 +94,7 @@
 
     <div class="header-icons">
 
+
         <!-- CART -->
 
         <a href="cart.html"
@@ -67,11 +108,23 @@
         </a>
 
 
+        <!-- WISHLIST -->
+
+        <a href="wishlist.html"
+           class="header-wishlist"
+           title="Wishlist">
+
+            ♥
+
+        </a>
+
+
         <!-- PROFILE -->
 
         <button
             class="profile-icon"
-            onclick="openProfile()">
+            onclick="openProfile()"
+            title="My Account">
 
             👤
 
@@ -225,7 +278,9 @@
 
 
 
-<!-- CONTACT HERO -->
+<!-- ========================================= -->
+<!-- CONTACT HERO                              -->
+<!-- ========================================= -->
 
 <section class="contact-hero">
 
@@ -252,7 +307,9 @@
 
 
 
-<!-- CONTACT SECTION -->
+<!-- ========================================= -->
+<!-- CONTACT SECTION                           -->
+<!-- ========================================= -->
 
 <section class="contact-section">
 
@@ -390,7 +447,6 @@
                 </div>
 
 
-
                 <div class="form-group">
 
                     <label for="email">
@@ -403,7 +459,6 @@
                         placeholder="Enter your email">
 
                 </div>
-
 
 
                 <div class="form-group">
@@ -420,7 +475,6 @@
                 </div>
 
 
-
                 <div class="form-group">
 
                     <label for="message">
@@ -434,7 +488,6 @@
                         required></textarea>
 
                 </div>
-
 
 
                 <button type="submit">
@@ -453,7 +506,9 @@
 
 
 
-<!-- FOOTER -->
+<!-- ========================================= -->
+<!-- FOOTER                                    -->
+<!-- ========================================= -->
 
 <footer>
 
@@ -490,7 +545,9 @@
 
 
 
-<!-- PROFILE + WHATSAPP JAVASCRIPT -->
+<!-- ========================================= -->
+<!-- PROFILE + WHATSAPP JAVASCRIPT             -->
+<!-- ========================================= -->
 
 <script>
 
@@ -510,7 +567,6 @@ function closeProfile() {
         .classList.remove("active");
 
 }
-
 
 
 /* CONTACT FORM → WHATSAPP */
@@ -579,7 +635,7 @@ document
     });
 
 </script>
-
+<script src="js/cart-count.js"></script>
 
 </body>
 

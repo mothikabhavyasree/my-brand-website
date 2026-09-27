@@ -13,13 +13,195 @@
     <link rel="stylesheet"
           href="css/style.css">
 
+
+    <style>
+
+        /* ========================================= */
+        /* HEADER WISHLIST ICON                      */
+        /* ========================================= */
+
+        .header-wishlist {
+            width: 28px !important;
+            height: 28px !important;
+
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+
+            color: #e00000 !important;
+
+            text-decoration: none !important;
+
+            font-size: 24px !important;
+            line-height: 1 !important;
+
+            padding: 0 !important;
+            margin: 0 !important;
+
+            cursor: pointer;
+
+            transition: 0.3s ease;
+        }
+
+
+        .header-wishlist:hover {
+            color: #b00000 !important;
+            transform: scale(1.08);
+        }
+
+
+
+        /* ========================================= */
+        /* PAYMENT METHOD                            */
+        /* ========================================= */
+
+        .checkout-payment {
+            margin-top: 35px;
+        }
+
+
+        .payment-heading {
+            margin-bottom: 22px;
+        }
+
+
+        .payment-options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+
+        .payment-option {
+            width: 100%;
+            min-height: 62px;
+
+            box-sizing: border-box;
+
+            display: flex;
+            align-items: center;
+
+            gap: 14px;
+
+            padding: 0 18px;
+
+            background: #ffffff;
+
+            border: 1px solid #ddd3cd;
+
+            cursor: pointer;
+
+            transition: 0.3s ease;
+        }
+
+
+        .payment-option:hover {
+            border-color: #9a7460;
+            background: #faf7f4;
+        }
+
+
+        .payment-option input {
+            width: 18px;
+            height: 18px;
+
+            margin: 0;
+
+            accent-color: #2b2522;
+
+            cursor: pointer;
+        }
+
+
+        .payment-option span {
+            font-size: 16px;
+            color: #2b2522;
+        }
+
+
+        /* Selected payment option */
+
+        .payment-option:has(input:checked) {
+            border-color: #9a7460;
+            background: #faf7f4;
+            box-shadow: inset 3px 0 0 #9a7460;
+        }
+
+
+
+        /* ========================================= */
+        /* PLACE ORDER BUTTON                        */
+        /* ========================================= */
+
+        .place-order {
+            width: 100%;
+            height: 56px;
+
+            margin-top: 28px;
+
+            border: 1px solid #2b2522;
+
+            background: #2b2522;
+            color: #ffffff;
+
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+
+            letter-spacing: 1.5px;
+
+            cursor: pointer;
+
+            transition: 0.3s ease;
+        }
+
+
+        .place-order:hover {
+            background: #8c6654;
+            border-color: #8c6654;
+
+            transform: translateY(-1px);
+        }
+
+
+        .place-order:active {
+            transform: translateY(0);
+        }
+
+
+
+        /* ========================================= */
+        /* MOBILE PAYMENT                            */
+        /* ========================================= */
+
+        @media (max-width: 768px) {
+
+            .payment-option {
+                min-height: 58px;
+                padding: 0 15px;
+            }
+
+            .payment-option span {
+                font-size: 14px;
+            }
+
+            .place-order {
+                height: 54px;
+            }
+
+        }
+
+    </style>
+
 </head>
 
 
 <body>
 
 
-<!-- HEADER -->
+<!-- ========================================= -->
+<!-- HEADER                                    -->
+<!-- ========================================= -->
 
 <header>
 
@@ -56,10 +238,11 @@
     <div class="header-icons">
 
 
-        <!-- FASHION CART ICON -->
+        <!-- CART -->
 
         <a href="cart.html"
-           class="cart-icon">
+           class="cart-icon"
+           title="Shopping Bag">
 
             <img
                 src="images/fashion-cart.png"
@@ -69,11 +252,23 @@
         </a>
 
 
-        <!-- PROFILE ICON -->
+        <!-- WISHLIST -->
+
+        <a href="wishlist.html"
+           class="header-wishlist"
+           title="Wishlist">
+
+            ♥
+
+        </a>
+
+
+        <!-- PROFILE -->
 
         <button
             class="profile-icon"
-            onclick="openProfile()">
+            onclick="openProfile()"
+            title="My Account">
 
             👤
 
@@ -86,8 +281,6 @@
             id="profile-panel"
             class="profile-panel">
 
-
-            <!-- PROFILE HEADER -->
 
             <div class="profile-dropdown-header">
 
@@ -125,8 +318,9 @@
 
             <!-- PROFILE -->
 
-            <a href="#"
-               class="profile-menu">
+            <a
+                href="profile.html"
+                class="profile-menu">
 
                 <span class="profile-menu-icon">
                     👤
@@ -149,8 +343,9 @@
 
             <!-- SHOPPING BAG -->
 
-            <a href="cart.html"
-               class="profile-menu">
+            <a
+                href="cart.html"
+                class="profile-menu">
 
                 <span class="profile-menu-icon">
                     🛒
@@ -173,8 +368,9 @@
 
             <!-- MY ORDERS -->
 
-            <a href="orders.html"
-               class="profile-menu">
+            <a
+                href="orders.html"
+                class="profile-menu">
 
                 <span class="profile-menu-icon">
                     📦
@@ -197,8 +393,9 @@
 
             <!-- CONTACT -->
 
-            <a href="contact.html"
-               class="profile-menu">
+            <a
+                href="contact.html"
+                class="profile-menu">
 
                 <span class="profile-menu-icon">
                     💬
@@ -227,7 +424,9 @@
 
 
 
-<!-- CHECKOUT -->
+<!-- ========================================= -->
+<!-- CHECKOUT                                  -->
+<!-- ========================================= -->
 
 <section class="checkout-section">
 
@@ -425,6 +624,8 @@
                     <div class="payment-options">
 
 
+                        <!-- CASH ON DELIVERY -->
+
                         <label class="payment-option">
 
                             <input
@@ -441,6 +642,8 @@
                         </label>
 
 
+
+                        <!-- ONLINE PAYMENT -->
 
                         <label class="payment-option">
 
@@ -533,7 +736,9 @@
 
 
 
-<!-- FOOTER -->
+<!-- ========================================= -->
+<!-- FOOTER                                    -->
+<!-- ========================================= -->
 
 <footer>
 
@@ -570,12 +775,17 @@
 
 
 
-<!-- CHECKOUT JAVASCRIPT -->
+<!-- ========================================= -->
+<!-- CHECKOUT JAVASCRIPT                       -->
+<!-- ========================================= -->
 
 <script src="js/checkout.js"></script>
 
 
-<!-- PROFILE JAVASCRIPT -->
+
+<!-- ========================================= -->
+<!-- PROFILE JAVASCRIPT                        -->
+<!-- ========================================= -->
 
 <script>
 
@@ -597,6 +807,9 @@ function closeProfile() {
 }
 
 </script>
+
+
+<script src="js/cart-count.js"></script>
 
 
 </body>

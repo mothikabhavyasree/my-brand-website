@@ -12,12 +12,111 @@
 
     <link rel="stylesheet" href="css/style.css">
 
+    <style>
+
+        /* ========================================= */
+        /* HEADER WISHLIST ICON                      */
+        /* ========================================= */
+
+        .header-wishlist {
+            width: 28px;
+            height: 28px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-decoration: none;
+
+            color: #e00000;
+
+            font-size: 25px;
+            line-height: 1;
+
+            transition: 0.3s ease;
+        }
+
+        .header-wishlist:hover {
+            color: #b00000;
+            transform: scale(1.08);
+        }
+
+
+        /* ========================================= */
+        /* PRODUCT WISHLIST HEART                    */
+        /* ========================================= */
+
+        .product {
+            position: relative;
+        }
+
+        .product .wishlist-button {
+
+            position: absolute !important;
+
+            top: 12px !important;
+            right: 12px !important;
+
+            width: 40px !important;
+            height: 40px !important;
+
+            min-width: 40px !important;
+            max-width: 40px !important;
+
+            min-height: 40px !important;
+            max-height: 40px !important;
+
+            padding: 0 !important;
+            margin: 0 !important;
+
+            border: none !important;
+            border-radius: 50% !important;
+
+            background: white !important;
+            color: #2b2522 !important;
+
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+
+            font-size: 23px !important;
+            line-height: 1 !important;
+
+            cursor: pointer;
+
+            z-index: 10;
+
+            box-shadow:
+                0 3px 12px rgba(0, 0, 0, 0.10);
+
+            transition: 0.3s ease;
+        }
+
+        .product .wishlist-button:hover {
+
+            transform: scale(1.08);
+
+            background: #faf8f6 !important;
+
+        }
+
+        .product .wishlist-button.active {
+
+            color: #9a7460 !important;
+
+        }
+
+    </style>
+
 </head>
+
 
 <body>
 
 
-<!-- HEADER -->
+<!-- ========================================= -->
+<!-- HEADER                                    -->
+<!-- ========================================= -->
 
 <header>
 
@@ -53,9 +152,12 @@
 
     <div class="header-icons">
 
+
         <!-- CART -->
 
-        <a href="cart.html" class="cart-icon">
+        <a href="cart.html"
+           class="cart-icon"
+           title="Shopping Bag">
 
             <img
                 src="images/fashion-cart.png"
@@ -65,15 +167,28 @@
         </a>
 
 
+        <!-- WISHLIST -->
+
+        <a href="wishlist.html"
+           class="header-wishlist"
+           title="Wishlist">
+
+            ♥
+
+        </a>
+
+
         <!-- PROFILE -->
 
         <button
             class="profile-icon"
-            onclick="openProfile()">
+            onclick="openProfile()"
+            title="My Account">
 
             👤
 
         </button>
+
 
 
         <!-- PROFILE DROPDOWN -->
@@ -117,6 +232,7 @@
             </div>
 
 
+
             <!-- PROFILE -->
 
             <a
@@ -140,6 +256,7 @@
                 </span>
 
             </a>
+
 
 
             <!-- SHOPPING BAG -->
@@ -167,6 +284,7 @@
             </a>
 
 
+
             <!-- MY ORDERS -->
 
             <a
@@ -190,6 +308,7 @@
                 </span>
 
             </a>
+
 
 
             <!-- CONTACT US -->
@@ -225,7 +344,9 @@
 
 
 
-<!-- SHOP HEADER -->
+<!-- ========================================= -->
+<!-- SHOP HEADER                               -->
+<!-- ========================================= -->
 
 <section class="shop-header">
 
@@ -245,7 +366,9 @@
 
 
 
-<!-- CATEGORY FILTER -->
+<!-- ========================================= -->
+<!-- SHOP SECTION                              -->
+<!-- ========================================= -->
 
 <section class="shop-section">
 
@@ -269,6 +392,7 @@
     <!-- CATEGORY FILTERS -->
 
     <div class="shop-filters">
+
 
         <button
             class="filter-button active"
@@ -314,6 +438,7 @@
 
         </button>
 
+
     </div>
 
 
@@ -323,14 +448,20 @@
     <p class="product-count">
 
         Showing
-        <span id="product-count">7</span>
+
+        <span id="product-count">
+            7
+        </span>
+
         products
 
     </p>
 
 
 
-    <!-- PRODUCTS -->
+    <!-- ===================================== -->
+    <!-- PRODUCTS                              -->
+    <!-- ===================================== -->
 
     <div class="shop-products">
 
@@ -344,17 +475,31 @@
             onclick="window.location.href='product.html?id=kurti1'"
         >
 
+            <button
+                class="wishlist-button"
+                data-product-id="kurti1"
+                onclick="toggleWishlist(event, 'kurti1', 'Elegant Kurti', 1299, 'Kurtis')"
+                title="Add to Wishlist">
+
+                ♡
+
+            </button>
+
+
             <div class="product-image">
                 Product Image
             </div>
+
 
             <h3>
                 Elegant Kurti
             </h3>
 
+
             <p>
                 ₹1,299
             </p>
+
 
             <button
                 onclick="event.stopPropagation(); window.location.href='product.html?id=kurti1'">
@@ -376,17 +521,31 @@
             onclick="window.location.href='product.html?id=dress1'"
         >
 
+            <button
+                class="wishlist-button"
+                data-product-id="dress1"
+                onclick="toggleWishlist(event, 'dress1', 'Floral Dress', 1599, 'Dresses')"
+                title="Add to Wishlist">
+
+                ♡
+
+            </button>
+
+
             <div class="product-image">
                 Product Image
             </div>
+
 
             <h3>
                 Floral Dress
             </h3>
 
+
             <p>
                 ₹1,599
             </p>
+
 
             <button
                 onclick="event.stopPropagation(); window.location.href='product.html?id=dress1'">
@@ -408,17 +567,31 @@
             onclick="window.location.href='product.html?id=saree1'"
         >
 
+            <button
+                class="wishlist-button"
+                data-product-id="saree1"
+                onclick="toggleWishlist(event, 'saree1', 'Designer Saree', 1999, 'Sarees')"
+                title="Add to Wishlist">
+
+                ♡
+
+            </button>
+
+
             <div class="product-image">
                 Product Image
             </div>
+
 
             <h3>
                 Designer Saree
             </h3>
 
+
             <p>
                 ₹1,999
             </p>
+
 
             <button
                 onclick="event.stopPropagation(); window.location.href='product.html?id=saree1'">
@@ -440,17 +613,31 @@
             onclick="window.location.href='product.html?id=kurti2'"
         >
 
+            <button
+                class="wishlist-button"
+                data-product-id="kurti2"
+                onclick="toggleWishlist(event, 'kurti2', 'Casual Kurti', 999, 'Kurtis')"
+                title="Add to Wishlist">
+
+                ♡
+
+            </button>
+
+
             <div class="product-image">
                 Product Image
             </div>
+
 
             <h3>
                 Casual Kurti
             </h3>
 
+
             <p>
                 ₹999
             </p>
+
 
             <button
                 onclick="event.stopPropagation(); window.location.href='product.html?id=kurti2'">
@@ -472,17 +659,31 @@
             onclick="window.location.href='product.html?id=dress2'"
         >
 
+            <button
+                class="wishlist-button"
+                data-product-id="dress2"
+                onclick="toggleWishlist(event, 'dress2', 'Party Wear Dress', 1899, 'Dresses')"
+                title="Add to Wishlist">
+
+                ♡
+
+            </button>
+
+
             <div class="product-image">
                 Product Image
             </div>
+
 
             <h3>
                 Party Wear Dress
             </h3>
 
+
             <p>
                 ₹1,899
             </p>
+
 
             <button
                 onclick="event.stopPropagation(); window.location.href='product.html?id=dress2'">
@@ -504,17 +705,31 @@
             onclick="window.location.href='product.html?id=saree2'"
         >
 
+            <button
+                class="wishlist-button"
+                data-product-id="saree2"
+                onclick="toggleWishlist(event, 'saree2', 'Premium Saree', 2499, 'Sarees')"
+                title="Add to Wishlist">
+
+                ♡
+
+            </button>
+
+
             <div class="product-image">
                 Product Image
             </div>
+
 
             <h3>
                 Premium Saree
             </h3>
 
+
             <p>
                 ₹2,499
             </p>
+
 
             <button
                 onclick="event.stopPropagation(); window.location.href='product.html?id=saree2'">
@@ -536,17 +751,31 @@
             onclick="window.location.href='product.html?id=coord1'"
         >
 
+            <button
+                class="wishlist-button"
+                data-product-id="coord1"
+                onclick="toggleWishlist(event, 'coord1', 'Elegant Co-ord Set', 1799, 'Co-ord Sets')"
+                title="Add to Wishlist">
+
+                ♡
+
+            </button>
+
+
             <div class="product-image">
                 Product Image
             </div>
+
 
             <h3>
                 Elegant Co-ord Set
             </h3>
 
+
             <p>
                 ₹1,799
             </p>
+
 
             <button
                 onclick="event.stopPropagation(); window.location.href='product.html?id=coord1'">
@@ -564,13 +793,16 @@
 
 
 
-<!-- FOOTER -->
+<!-- ========================================= -->
+<!-- FOOTER                                    -->
+<!-- ========================================= -->
 
 <footer>
 
     <h2>
         MY BRAND
     </h2>
+
 
     <p>
         Fashion made for you.
@@ -582,6 +814,7 @@
         <a href="about.html">
             About
         </a>
+
 
         <a href="contact.html">
             Contact
@@ -601,10 +834,20 @@
 
 
 
+<!-- ========================================= -->
+<!-- SHOP JAVASCRIPT                           -->
+<!-- ========================================= -->
+
 <script src="js/shop.js"></script>
 
 
+
 <script>
+
+
+// =========================================
+// PROFILE
+// =========================================
 
 function openProfile() {
 
@@ -623,9 +866,154 @@ function closeProfile() {
 
 }
 
+
+
+// =========================================
+// WISHLIST
+// =========================================
+
+function toggleWishlist(
+    event,
+    productId,
+    productName,
+    productPrice,
+    productCategory
+) {
+
+    event.stopPropagation();
+
+
+    let wishlist =
+        JSON.parse(
+            localStorage.getItem("wishlistProducts")
+        ) || [];
+
+
+    const existingProduct =
+        wishlist.find(function(product) {
+
+            return product.id === productId;
+
+        });
+
+
+    // REMOVE
+
+    if (existingProduct) {
+
+        wishlist =
+            wishlist.filter(function(product) {
+
+                return product.id !== productId;
+
+            });
+
+    }
+
+
+    // ADD
+
+    else {
+
+        wishlist.push({
+
+            id: productId,
+
+            name: productName,
+
+            price: productPrice,
+
+            category: productCategory
+
+        });
+
+    }
+
+
+    localStorage.setItem(
+        "wishlistProducts",
+        JSON.stringify(wishlist)
+    );
+
+
+    updateWishlistButtons();
+
+}
+
+
+
+// =========================================
+// UPDATE PRODUCT HEARTS
+// =========================================
+
+function updateWishlistButtons() {
+
+    const wishlist =
+        JSON.parse(
+            localStorage.getItem("wishlistProducts")
+        ) || [];
+
+
+    const buttons =
+        document.querySelectorAll(
+            ".wishlist-button"
+        );
+
+
+    buttons.forEach(function(button) {
+
+        const productId =
+            button.dataset.productId;
+
+
+        const isSaved =
+            wishlist.some(function(product) {
+
+                return product.id === productId;
+
+            });
+
+
+        if (isSaved) {
+
+            button.textContent = "♥";
+
+            button.classList.add("active");
+
+            button.title =
+                "Remove from Wishlist";
+
+        }
+
+        else {
+
+            button.textContent = "♡";
+
+            button.classList.remove("active");
+
+            button.title =
+                "Add to Wishlist";
+
+        }
+
+    });
+
+}
+
+
+
+// =========================================
+// LOAD WISHLIST
+// =========================================
+
+updateWishlistButtons();
+
+
 </script>
 
 
-</body>
 
+<script src="js/cart-count.js"></script>
+
+</body>
 </html>

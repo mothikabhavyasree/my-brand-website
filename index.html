@@ -15,21 +15,66 @@
 
     <style>
 
-        /* PROFILE DROPDOWN */
+        /* ========================================= */
+        /* PROFILE DROPDOWN                          */
+        /* ========================================= */
 
         .header-icons {
             position: relative;
         }
+
 
         .profile-icon {
             border: none;
             background: transparent;
             padding: 0;
             margin: 0;
+
             font-size: 21px;
+
             cursor: pointer;
+
             line-height: 1;
         }
+
+
+        /* ========================================= */
+        /* HEADER WISHLIST ICON                      */
+        /* ========================================= */
+
+        .header-wishlist {
+            width: 28px !important;
+            height: 28px !important;
+
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+
+            color: #e00000 !important;
+
+            text-decoration: none !important;
+
+            font-size: 24px !important;
+            line-height: 1 !important;
+
+            padding: 0 !important;
+            margin: 0 !important;
+
+            cursor: pointer;
+
+            transition: 0.3s ease;
+        }
+
+
+        .header-wishlist:hover {
+            color: #b00000 !important;
+            transform: scale(1.08);
+        }
+
+
+        /* ========================================= */
+        /* PROFILE PANEL                             */
+        /* ========================================= */
 
         .profile-panel {
             position: absolute !important;
@@ -47,7 +92,9 @@
             border: 1px solid #eeeeee;
             border-radius: 8px;
 
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+            box-shadow:
+                0 8px 25px
+                rgba(0, 0, 0, 0.12);
 
             overflow: hidden;
 
@@ -61,12 +108,14 @@
             z-index: 99999;
         }
 
+
         .profile-panel.active {
             opacity: 1 !important;
             visibility: visible !important;
 
             transform: translateY(0);
         }
+
 
         .profile-dropdown-header {
             display: flex;
@@ -79,6 +128,7 @@
             border-bottom: 1px solid #eeeeee;
         }
 
+
         .profile-user {
             display: flex;
 
@@ -86,6 +136,7 @@
 
             gap: 10px;
         }
+
 
         .profile-small-avatar {
             width: 38px;
@@ -103,15 +154,20 @@
             font-size: 18px;
         }
 
+
         .profile-user strong {
             display: block;
 
-            font-family: Georgia, "Times New Roman", serif;
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
 
             font-size: 15px;
 
             font-weight: normal;
         }
+
 
         .profile-user small {
             display: block;
@@ -122,6 +178,7 @@
 
             font-size: 10px;
         }
+
 
         .profile-close {
             border: none;
@@ -139,11 +196,13 @@
             cursor: pointer;
         }
 
+
         .profile-close:hover {
             background: transparent;
 
             color: #8c6654;
         }
+
 
         .profile-menu {
             display: flex;
@@ -161,9 +220,11 @@
             border-bottom: 1px solid #f1f1f1;
         }
 
+
         .profile-menu:last-child {
             border-bottom: none;
         }
+
 
         .profile-menu-icon {
             width: 30px;
@@ -181,6 +242,7 @@
             font-size: 14px;
         }
 
+
         .profile-menu-text {
             display: flex;
 
@@ -189,11 +251,13 @@
             gap: 2px;
         }
 
+
         .profile-menu-text strong {
             font-size: 12px;
 
             font-weight: 500;
         }
+
 
         .profile-menu-text small {
             font-size: 10px;
@@ -201,11 +265,13 @@
             color: #999;
         }
 
+
         .profile-menu:hover {
             background: #faf8f6;
 
             color: #8c6654;
         }
+
 
         /* REMOVE OLD OVERLAY */
 
@@ -220,6 +286,10 @@
 
 <body>
 
+
+<!-- ========================================= -->
+<!-- HEADER                                    -->
+<!-- ========================================= -->
 
 <header>
 
@@ -255,10 +325,12 @@
 
     <div class="header-icons">
 
+
         <!-- CART -->
 
         <a href="cart.html"
-           class="cart-icon">
+           class="cart-icon"
+           title="Shopping Bag">
 
             <img
                 src="images/fashion-cart.png"
@@ -268,11 +340,23 @@
         </a>
 
 
+        <!-- WISHLIST -->
+
+        <a href="wishlist.html"
+           class="header-wishlist"
+           title="Wishlist">
+
+            ♥
+
+        </a>
+
+
         <!-- PROFILE -->
 
         <button
             class="profile-icon"
-            onclick="openProfile()">
+            onclick="openProfile()"
+            title="My Account">
 
             👤
 
@@ -320,8 +404,11 @@
             </div>
 
 
-            <a href="profile.html"
-               class="profile-menu">
+            <!-- PROFILE -->
+
+            <a
+                href="profile.html"
+                class="profile-menu">
 
                 <span class="profile-menu-icon">
                     👤
@@ -344,8 +431,9 @@
 
             <!-- MY ORDERS -->
 
-            <a href="orders.html"
-               class="profile-menu">
+            <a
+                href="orders.html"
+                class="profile-menu">
 
                 <span class="profile-menu-icon">
                     📦
@@ -366,8 +454,11 @@
             </a>
 
 
-            <a href="cart.html"
-               class="profile-menu">
+            <!-- SHOPPING BAG -->
+
+            <a
+                href="cart.html"
+                class="profile-menu">
 
                 <span class="profile-menu-icon">
                     🛒
@@ -388,8 +479,11 @@
             </a>
 
 
-            <a href="contact.html"
-               class="profile-menu">
+            <!-- CONTACT -->
+
+            <a
+                href="contact.html"
+                class="profile-menu">
 
                 <span class="profile-menu-icon">
                     💬
@@ -417,6 +511,10 @@
 </header>
 
 
+
+<!-- ========================================= -->
+<!-- HERO                                      -->
+<!-- ========================================= -->
 
 <section class="hero">
 
@@ -452,6 +550,10 @@
 
 
 
+<!-- ========================================= -->
+<!-- CATEGORIES                                -->
+<!-- ========================================= -->
+
 <section class="categories">
 
     <h2>
@@ -462,8 +564,9 @@
     <div class="category-container">
 
 
-        <div class="category"
-             onclick="window.location.href='shop.html?category=sarees'">
+        <div
+            class="category"
+            onclick="window.location.href='shop.html?category=sarees'">
 
             <div class="category-image">
                 Sarees
@@ -476,8 +579,9 @@
         </div>
 
 
-        <div class="category"
-             onclick="window.location.href='shop.html?category=kurtis'">
+        <div
+            class="category"
+            onclick="window.location.href='shop.html?category=kurtis'">
 
             <div class="category-image">
                 Kurtis
@@ -490,8 +594,9 @@
         </div>
 
 
-        <div class="category"
-             onclick="window.location.href='shop.html?category=dresses'">
+        <div
+            class="category"
+            onclick="window.location.href='shop.html?category=dresses'">
 
             <div class="category-image">
                 Dresses
@@ -504,8 +609,9 @@
         </div>
 
 
-        <div class="category"
-             onclick="window.location.href='shop.html?category=co-ords'">
+        <div
+            class="category"
+            onclick="window.location.href='shop.html?category=co-ords'">
 
             <div class="category-image">
                 Co-ords
@@ -524,6 +630,10 @@
 
 
 
+<!-- ========================================= -->
+<!-- NEW ARRIVALS                              -->
+<!-- ========================================= -->
+
 <section class="products">
 
     <p class="small-title">
@@ -537,6 +647,8 @@
 
     <div class="product-container">
 
+
+        <!-- PRODUCT 1 -->
 
         <div class="product">
 
@@ -562,6 +674,8 @@
         </div>
 
 
+        <!-- PRODUCT 2 -->
+
         <div class="product">
 
             <div class="product-image">
@@ -585,6 +699,8 @@
 
         </div>
 
+
+        <!-- PRODUCT 3 -->
 
         <div class="product">
 
@@ -616,6 +732,10 @@
 
 
 
+<!-- ========================================= -->
+<!-- FOOTER                                    -->
+<!-- ========================================= -->
+
 <footer>
 
     <h2>
@@ -641,12 +761,19 @@
 
 
     <p class="copyright">
-        © 2026 My Brand. All Rights Reserved.
+
+        © 2026 My Brand.
+        All Rights Reserved.
+
     </p>
 
 </footer>
 
 
+
+<!-- ========================================= -->
+<!-- PROFILE JAVASCRIPT                        -->
+<!-- ========================================= -->
 
 <script>
 
@@ -668,7 +795,7 @@ function closeProfile() {
 }
 
 </script>
-
+<script src="js/cart-count.js"></script>
 
 </body>
 

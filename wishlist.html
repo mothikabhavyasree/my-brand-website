@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>My Wishlist | My Brand</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+
+        /* ========================================= */
+        /* HEADER WISHLIST ICON                      */
+        /* ========================================= */
+
+        .header-wishlist {
+            width: 28px !important;
+            height: 28px !important;
+
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+
+            color: #e00000 !important;
+
+            text-decoration: none !important;
+
+            font-size: 24px !important;
+            line-height: 1 !important;
+
+            padding: 0 !important;
+            margin: 0 !important;
+
+            cursor: pointer;
+
+            transition: 0.3s ease;
+        }
+
+        .header-wishlist:hover {
+            color: #b00000 !important;
+            transform: scale(1.08);
+        }
+
+
+        /* ========================================= */
+        /* WISHLIST PAGE                             */
+        /* ========================================= */
+
+        .wishlist-page {
+            padding: 70px 7%;
+            min-height: 60vh;
+        }
+
+        .wishlist-heading {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .wishlist-heading .small-title {
+            letter-spacing: 3px;
+            font-size: 12px;
+            color: #9a7460;
+            margin-bottom: 10px;
+        }
+
+        .wishlist-heading h1 {
+            font-size: 42px;
+            margin-bottom: 12px;
+        }
+
+        .wishlist-heading p {
+            color: #777;
+        }
+
+
+        /* ========================================= */
+        /* WISHLIST PRODUCTS                         */
+        /* ========================================= */
+
+        .wishlist-products {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(260px, 300px));
+
+            gap: 30px;
+
+            justify-content: center;
+
+        }
+
+
+        .wishlist-card {
+
+            width: 100%;
+
+            box-sizing: border-box;
+
+            background: #fff;
+
+            border: 1px solid #eee;
+
+            padding: 20px;
+
+            position: relative;
+
+            transition: 0.3s ease;
+
+        }
+
+
+        .wishlist-card:hover {
+
+            transform: translateY(-5px);
+
+            box-shadow:
+                0 10px 30px
+                rgba(0, 0, 0, 0.08);
+
+        }
+
+
+        /* ========================================= */
+        /* CLICKABLE PRODUCT IMAGE                   */
+        /* ========================================= */
+
+        .wishlist-card-image-link {
+
+            display: block;
+
+            text-decoration: none;
+
+            cursor: pointer;
+
+        }
+
+
+        .wishlist-card-image {
+
+            height: 260px;
+
+            background: #f5f2ef;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            color: #aaa;
+
+            margin-bottom: 20px;
+
+            transition: 0.3s ease;
+
+        }
+
+
+        .wishlist-card-image-link:hover
+        .wishlist-card-image {
+
+            background: #eee9e5;
+
+        }
+
+
+        /* ========================================= */
+        /* PRODUCT INFORMATION                       */
+        /* ========================================= */
+
+        .wishlist-card h3 {
+
+            font-size: 18px;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .wishlist-card-price {
+
+            font-size: 16px;
+
+            font-weight: 600;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .wishlist-card-category {
+
+            font-size: 12px;
+
+            color: #999;
+
+            margin-bottom: 18px;
+
+        }
+
+
+        /* ========================================= */
+        /* WISHLIST BUTTONS                          */
+        /* ========================================= */
+
+        .wishlist-actions {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            margin-top: 8px;
+
+        }
+
+
+        .wishlist-view {
+
+            flex: 1;
+
+            height: 44px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            box-sizing: border-box;
+
+            background: #2b2522;
+
+            color: white;
+
+            border: 1px solid #2b2522;
+
+            border-radius: 4px;
+
+            text-decoration: none;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 13px;
+
+            font-weight: 500;
+
+            letter-spacing: 0.5px;
+
+            transition: 0.3s ease;
+
+        }
+
+
+        .wishlist-view:hover {
+
+            background: #8c6654;
+
+            border-color: #8c6654;
+
+        }
+
+
+        /* REMOVE BUTTON */
+
+        .wishlist-remove {
+
+            width: 44px;
+
+            height: 44px;
+
+            flex-shrink: 0;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            box-sizing: border-box;
+
+            background: white;
+
+            border: 1px solid #ddd3cd;
+
+            border-radius: 4px;
+
+            color: #b00000;
+
+            cursor: pointer;
+
+            font-size: 20px;
+
+            line-height: 1;
+
+            padding: 0;
+
+            margin: 0;
+
+            transition: 0.3s ease;
+
+        }
+
+
+        .wishlist-remove:hover {
+
+            background: #fff5f5;
+
+            border-color: #b00000;
+
+            transform: scale(1.05);
+
+        }
+
+
+        /* ========================================= */
+        /* EMPTY WISHLIST                            */
+        /* ========================================= */
+
+        .empty-wishlist {
+
+            text-align: center;
+
+            padding: 80px 20px;
+
+        }
+
+
+        .empty-wishlist-heart {
+
+            font-size: 55px;
+
+            color: #e00000;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .empty-wishlist h2 {
+
+            margin-bottom: 12px;
+
+        }
+
+
+        .empty-wishlist p {
+
+            color: #777;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .shop-now-button {
+
+            display: inline-block;
+
+            background: #2b2522;
+
+            color: white;
+
+            padding: 14px 30px;
+
+            text-decoration: none;
+
+            font-size: 14px;
+
+        }
+
+
+        /* ========================================= */
+        /* MOBILE                                    */
+        /* ========================================= */
+
+        @media (max-width: 600px) {
+
+            .wishlist-page {
+
+                padding: 50px 20px;
+
+            }
+
+
+            .wishlist-heading h1 {
+
+                font-size: 32px;
+
+            }
+
+
+            .wishlist-products {
+
+                grid-template-columns: minmax(0, 1fr);
+
+                justify-content: stretch;
+
+            }
+
+
+            .wishlist-card-image {
+
+                height: 300px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- ========================================= -->
+<!-- HEADER                                    -->
+<!-- ========================================= -->
+
+<header>
+
+    <div class="logo">
+        MY BRAND
+    </div>
+
+
+    <nav>
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="shop.html">
+            Shop
+        </a>
+
+        <a href="shop.html">
+            New Arrivals
+        </a>
+
+        <a href="about.html">
+            About
+        </a>
+
+        <a href="contact.html">
+            Contact
+        </a>
+
+    </nav>
+
+
+    <div class="header-icons">
+
+        <!-- CART -->
+
+        <a href="cart.html"
+           class="cart-icon"
+           title="Shopping Bag">
+
+            <img
+                src="images/fashion-cart.png"
+                alt="Shopping Cart"
+            >
+
+        </a>
+
+
+        <!-- WISHLIST -->
+
+        <a href="wishlist.html"
+           class="header-wishlist"
+           title="Wishlist">
+
+            ♥
+
+        </a>
+
+
+        <!-- PROFILE -->
+
+        <button
+            class="profile-icon"
+            onclick="openProfile()"
+            title="My Account">
+
+            👤
+
+        </button>
+
+
+        <!-- PROFILE DROPDOWN -->
+
+        <div
+            id="profile-panel"
+            class="profile-panel">
+
+
+            <div class="profile-dropdown-header">
+
+                <div class="profile-user">
+
+                    <div class="profile-small-avatar">
+                        👤
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            My Account
+                        </strong>
+
+                        <small>
+                            Welcome to My Brand
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    class="profile-close"
+                    onclick="closeProfile()">
+
+                    ×
+
+                </button>
+
+            </div>
+
+
+            <a
+                href="profile.html"
+                class="profile-menu">
+
+                <span class="profile-menu-icon">
+                    👤
+                </span>
+
+                <span class="profile-menu-text">
+
+                    <strong>
+                        Profile
+                    </strong>
+
+                    <small>
+                        My account
+                    </small>
+
+                </span>
+
+            </a>
+
+
+            <a
+                href="cart.html"
+                class="profile-menu">
+
+                <span class="profile-menu-icon">
+                    🛒
+                </span>
+
+                <span class="profile-menu-text">
+
+                    <strong>
+                        My Shopping Bag
+                    </strong>
+
+                    <small>
+                        View your products
+                    </small>
+
+                </span>
+
+            </a>
+
+
+            <a
+                href="orders.html"
+                class="profile-menu">
+
+                <span class="profile-menu-icon">
+                    📦
+                </span>
+
+                <span class="profile-menu-text">
+
+                    <strong>
+                        My Orders
+                    </strong>
+
+                    <small>
+                        View your orders
+                    </small>
+
+                </span>
+
+            </a>
+
+
+            <a
+                href="contact.html"
+                class="profile-menu">
+
+                <span class="profile-menu-icon">
+                    💬
+                </span>
+
+                <span class="profile-menu-text">
+
+                    <strong>
+                        Contact Us
+                    </strong>
+
+                    <small>
+                        We're here to help
+                    </small>
+
+                </span>
+
+            </a>
+
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<!-- ========================================= -->
+<!-- WISHLIST CONTENT                          -->
+<!-- ========================================= -->
+
+<section class="wishlist-page">
+
+
+    <div class="wishlist-heading">
+
+        <p class="small-title">
+            SAVED FOR LATER
+        </p>
+
+        <h1>
+            My Wishlist
+        </h1>
+
+        <p>
+            Your favourite pieces, all in one place.
+        </p>
+
+    </div>
+
+
+    <div
+        id="wishlist-container"
+        class="wishlist-products">
+    </div>
+
+
+</section>
+
+
+
+<!-- ========================================= -->
+<!-- FOOTER                                    -->
+<!-- ========================================= -->
+
+<footer>
+
+    <h2>
+        MY BRAND
+    </h2>
+
+
+    <p>
+        Fashion made for you.
+    </p>
+
+
+    <div class="footer-links">
+
+        <a href="about.html">
+            About
+        </a>
+
+        <a href="contact.html">
+            Contact
+        </a>
+
+    </div>
+
+
+    <p class="copyright">
+
+        © 2026 My Brand.
+        All Rights Reserved.
+
+    </p>
+
+</footer>
+
+
+
+<!-- ========================================= -->
+<!-- PROFILE SCRIPT                            -->
+<!-- ========================================= -->
+
+<script>
+
+function openProfile() {
+
+    document
+        .getElementById("profile-panel")
+        .classList.add("active");
+
+}
+
+
+function closeProfile() {
+
+    document
+        .getElementById("profile-panel")
+        .classList.remove("active");
+
+}
+
+</script>
+
+
+
+<!-- ========================================= -->
+<!-- WISHLIST SCRIPT                           -->
+<!-- ========================================= -->
+
+<script>
+
+function loadWishlist() {
+
+    const wishlist =
+        JSON.parse(
+            localStorage.getItem("wishlistProducts")
+        ) || [];
+
+
+    const container =
+        document.getElementById(
+            "wishlist-container"
+        );
+
+
+    /* EMPTY WISHLIST */
+
+    if (wishlist.length === 0) {
+
+        container.className =
+            "empty-wishlist";
+
+
+        container.innerHTML = `
+
+            <div class="empty-wishlist-heart">
+                ♥
+            </div>
+
+            <h2>
+                Your Wishlist is Empty
+            </h2>
+
+            <p>
+                Save your favourite products here
+                and come back to them anytime.
+            </p>
+
+            <a
+                href="shop.html"
+                class="shop-now-button">
+
+                Continue Shopping
+
+            </a>
+
+        `;
+
+        return;
+
+    }
+
+
+    /* PRODUCTS */
+
+    container.className =
+        "wishlist-products";
+
+
+    container.innerHTML = "";
+
+
+    wishlist.forEach(function(product) {
+
+        const card =
+            document.createElement("div");
+
+
+        card.className =
+            "wishlist-card";
+
+
+        card.innerHTML = `
+
+            <a
+                href="product.html?id=${product.id}"
+                class="wishlist-card-image-link"
+                aria-label="View ${product.name}">
+
+                <div class="wishlist-card-image">
+
+                    Product Image
+
+                </div>
+
+            </a>
+
+
+            <p class="wishlist-card-category">
+
+                ${product.category}
+
+            </p>
+
+
+            <h3>
+
+                ${product.name}
+
+            </h3>
+
+
+            <p class="wishlist-card-price">
+
+                ₹${product.price.toLocaleString("en-IN")}
+
+            </p>
+
+
+            <div class="wishlist-actions">
+
+
+                <a
+                    href="product.html?id=${product.id}"
+                    class="wishlist-view">
+
+                    View Product
+
+                </a>
+
+
+                <button
+                    class="wishlist-remove"
+                    onclick="removeFromWishlist('${product.id}')"
+                    title="Remove from Wishlist">
+
+                    ×
+
+                </button>
+
+
+            </div>
+
+        `;
+
+
+        container.appendChild(card);
+
+    });
+
+}
+
+
+/* ========================================= */
+/* REMOVE FROM WISHLIST                      */
+/* ========================================= */
+
+function removeFromWishlist(productId) {
+
+    let wishlist =
+        JSON.parse(
+            localStorage.getItem("wishlistProducts")
+        ) || [];
+
+
+    wishlist =
+        wishlist.filter(function(product) {
+
+            return product.id !== productId;
+
+        });
+
+
+    localStorage.setItem(
+        "wishlistProducts",
+        JSON.stringify(wishlist)
+    );
+
+
+    loadWishlist();
+
+}
+
+
+/* ========================================= */
+/* LOAD PAGE                                 */
+/* ========================================= */
+
+loadWishlist();
+
+</script>
+
+
+<script src="js/cart-count.js"></script>
+
+</body>
+
+</html>

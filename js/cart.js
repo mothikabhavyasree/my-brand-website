@@ -19,6 +19,67 @@ const cart =
         : [];
 
 
+// =========================================
+// UPDATE CART COUNT
+// =========================================
+
+function updateCartCount() {
+
+    let totalQuantity = 0;
+
+
+    cart.forEach(function(product) {
+
+        totalQuantity +=
+            Number(product.quantity) || 0;
+
+    });
+
+
+    const cartIcons =
+        document.querySelectorAll(".cart-icon");
+
+
+    cartIcons.forEach(function(cartIcon) {
+
+        let count =
+            cartIcon.querySelector(".cart-count");
+
+
+        if (!count) {
+
+            count =
+                document.createElement("span");
+
+            count.className =
+                "cart-count";
+
+            cartIcon.appendChild(count);
+
+        }
+
+
+        if (totalQuantity > 0) {
+
+            count.textContent =
+                totalQuantity;
+
+            count.style.display =
+                "flex";
+
+        } else {
+
+            count.style.display =
+                "none";
+
+        }
+
+    });
+
+}
+
+
+
 // DISPLAY CART
 
 function displayCart() {
@@ -51,6 +112,8 @@ function displayCart() {
         cartTotal.textContent = "₹0";
 
         cartTotalDisplay.textContent = "₹0";
+
+        updateCartCount();
 
         return;
     }
@@ -158,6 +221,11 @@ function displayCart() {
 
     cartTotalDisplay.textContent =
         "₹" + grandTotal;
+
+
+    // UPDATE CART ICON COUNT
+
+    updateCartCount();
 
 }
 

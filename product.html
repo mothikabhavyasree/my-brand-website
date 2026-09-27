@@ -13,12 +13,52 @@
     <link rel="stylesheet"
           href="css/style.css">
 
+
+    <style>
+
+        /* ========================================= */
+        /* HEADER WISHLIST ICON                      */
+        /* ========================================= */
+
+        .header-wishlist {
+            width: 28px !important;
+            height: 28px !important;
+
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+
+            color: #e00000 !important;
+
+            text-decoration: none !important;
+
+            font-size: 24px !important;
+            line-height: 1 !important;
+
+            padding: 0 !important;
+            margin: 0 !important;
+
+            cursor: pointer;
+
+            transition: 0.3s ease;
+        }
+
+
+        .header-wishlist:hover {
+            color: #b00000 !important;
+            transform: scale(1.08);
+        }
+
+    </style>
+
 </head>
 
 <body>
 
 
-<!-- HEADER -->
+<!-- ========================================= -->
+<!-- HEADER                                    -->
+<!-- ========================================= -->
 
 <header>
 
@@ -54,10 +94,12 @@
 
     <div class="header-icons">
 
+
         <!-- CART -->
 
         <a href="cart.html"
-           class="cart-icon">
+           class="cart-icon"
+           title="Shopping Bag">
 
             <img
                 src="images/fashion-cart.png"
@@ -67,11 +109,23 @@
         </a>
 
 
+        <!-- WISHLIST -->
+
+        <a href="wishlist.html"
+           class="header-wishlist"
+           title="Wishlist">
+
+            ♥
+
+        </a>
+
+
         <!-- PROFILE -->
 
         <button
             class="profile-icon"
-            onclick="openProfile()">
+            onclick="openProfile()"
+            title="My Account">
 
             👤
 
@@ -119,8 +173,12 @@
             </div>
 
 
-            <a href="#"
-               class="profile-menu">
+
+            <!-- PROFILE -->
+
+            <a
+                href="profile.html"
+                class="profile-menu">
 
                 <span class="profile-menu-icon">
                     👤
@@ -141,8 +199,12 @@
             </a>
 
 
-            <a href="cart.html"
-               class="profile-menu">
+
+            <!-- SHOPPING BAG -->
+
+            <a
+                href="cart.html"
+                class="profile-menu">
 
                 <span class="profile-menu-icon">
                     🛒
@@ -163,8 +225,38 @@
             </a>
 
 
-            <a href="contact.html"
-               class="profile-menu">
+
+            <!-- MY ORDERS -->
+
+            <a
+                href="orders.html"
+                class="profile-menu">
+
+                <span class="profile-menu-icon">
+                    📦
+                </span>
+
+                <span class="profile-menu-text">
+
+                    <strong>
+                        My Orders
+                    </strong>
+
+                    <small>
+                        View your orders
+                    </small>
+
+                </span>
+
+            </a>
+
+
+
+            <!-- CONTACT US -->
+
+            <a
+                href="contact.html"
+                class="profile-menu">
 
                 <span class="profile-menu-icon">
                     💬
@@ -193,7 +285,9 @@
 
 
 
-<!-- PRODUCT DETAILS -->
+<!-- ========================================= -->
+<!-- PRODUCT DETAILS                           -->
+<!-- ========================================= -->
 
 <section class="product-details">
 
@@ -236,6 +330,7 @@
         </p>
 
 
+
         <!-- SIZE -->
 
         <div class="size-section">
@@ -247,13 +342,21 @@
 
             <div class="sizes">
 
-                <button>S</button>
+                <button>
+                    S
+                </button>
 
-                <button>M</button>
+                <button>
+                    M
+                </button>
 
-                <button>L</button>
+                <button>
+                    L
+                </button>
 
-                <button>XL</button>
+                <button>
+                    XL
+                </button>
 
             </div>
 
@@ -312,7 +415,9 @@
 
 
 
-<!-- PRODUCT DESCRIPTION -->
+<!-- ========================================= -->
+<!-- PRODUCT DESCRIPTION                       -->
+<!-- ========================================= -->
 
 <section class="product-description-section">
 
@@ -356,7 +461,9 @@
 
 
 
-<!-- FOOTER -->
+<!-- ========================================= -->
+<!-- FOOTER                                    -->
+<!-- ========================================= -->
 
 <footer>
 
@@ -379,7 +486,9 @@
 
 
 
-<!-- JAVASCRIPT -->
+<!-- ========================================= -->
+<!-- JAVASCRIPT                                -->
+<!-- ========================================= -->
 
 <script src="js/products.js"></script>
 
@@ -408,7 +517,7 @@ function closeProfile() {
 }
 
 </script>
-
+<script src="js/cart-count.js"></script>
 
 </body>
 
