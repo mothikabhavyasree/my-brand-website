@@ -52,6 +52,38 @@
 
 
         /* ========================================= */
+        /* SAVE DETAILS                              */
+        /* ========================================= */
+
+        .save-details {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            margin-top: 18px;
+            margin-bottom: 10px;
+
+            font-size: 14px;
+            color: #5f5550;
+
+            cursor: pointer;
+        }
+
+
+        .save-details input {
+            width: 17px;
+            height: 17px;
+
+            margin: 0;
+
+            accent-color: #2b2522;
+
+            cursor: pointer;
+        }
+
+
+
+        /* ========================================= */
         /* PAYMENT METHOD                            */
         /* ========================================= */
 
@@ -183,6 +215,10 @@
 
             .payment-option span {
                 font-size: 14px;
+            }
+
+            .save-details {
+                font-size: 13px;
             }
 
             .place-order {
@@ -605,6 +641,24 @@
                     >
 
                 </div>
+
+
+
+                <!-- SAVE DETAILS -->
+
+                <label class="save-details">
+
+                    <input
+                        type="checkbox"
+                        id="save-details"
+                        checked
+                    >
+
+                    <span>
+                        Save my details for faster checkout next time
+                    </span>
+
+                </label>
 
 
 

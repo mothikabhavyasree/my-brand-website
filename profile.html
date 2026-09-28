@@ -49,6 +49,108 @@
             transform: scale(1.08);
         }
 
+
+
+        /* ========================================= */
+        /* SAVED CUSTOMER DETAILS                    */
+        /* ========================================= */
+
+        .saved-profile-details {
+            width: 100%;
+            max-width: 520px;
+
+            margin: 30px auto 0;
+
+            text-align: left;
+
+            padding: 24px;
+
+            background: #faf8f6;
+
+            border: 1px solid #e4ddd8;
+
+            box-sizing: border-box;
+        }
+
+
+        .saved-profile-title {
+            margin-bottom: 20px;
+
+            font-size: 13px;
+
+            letter-spacing: 1.5px;
+
+            font-weight: 600;
+
+            color: #8c6654;
+        }
+
+
+        .profile-detail {
+            margin-bottom: 16px;
+        }
+
+
+        .profile-detail:last-child {
+            margin-bottom: 0;
+        }
+
+
+        .profile-detail-label {
+            display: block;
+
+            margin-bottom: 5px;
+
+            font-size: 12px;
+
+            color: #8c817a;
+
+            text-transform: uppercase;
+
+            letter-spacing: 0.8px;
+        }
+
+
+        .profile-detail-value {
+            display: block;
+
+            font-size: 15px;
+
+            color: #2b2522;
+
+            line-height: 1.5;
+        }
+
+
+        .no-profile-details {
+            margin-top: 25px;
+
+            padding: 20px;
+
+            background: #faf8f6;
+
+            border: 1px solid #e4ddd8;
+
+            color: #6d625c;
+
+            font-size: 14px;
+
+            line-height: 1.6;
+        }
+
+
+        @media (max-width: 768px) {
+
+            .saved-profile-details {
+                padding: 20px;
+            }
+
+            .profile-detail-value {
+                font-size: 14px;
+            }
+
+        }
+
     </style>
 
 </head>
@@ -307,15 +409,22 @@
             </div>
 
 
-            <h2>
+            <h2 id="profile-welcome">
                 Welcome to My Brand
             </h2>
 
 
-            <p>
+            <p id="profile-message">
                 Manage your account and
                 shopping experience.
             </p>
+
+
+            <!-- ================================= -->
+            <!-- SAVED CUSTOMER DETAILS            -->
+            <!-- ================================= -->
+
+            <div id="saved-profile-details"></div>
 
 
             <div class="profile-options">
@@ -489,7 +598,163 @@ function closeProfile() {
 
 }
 
+
+// =========================================
+// LOAD SAVED CUSTOMER DETAILS
+// =========================================
+
+const savedCustomer =
+    localStorage.getItem("customerDetails");
+
+
+const savedProfileDetails =
+    document.getElementById(
+        "saved-profile-details"
+    );
+
+
+const profileWelcome =
+    document.getElementById(
+        "profile-welcome"
+    );
+
+
+if (savedCustomer) {
+
+    const customer =
+        JSON.parse(savedCustomer);
+
+
+    profileWelcome.textContent =
+        "Welcome, " +
+        customer.name;
+
+
+    savedProfileDetails.innerHTML = `
+
+        <div class="saved-profile-details">
+
+            <div class="saved-profile-title">
+                SAVED DELIVERY DETAILS
+            </div>
+
+
+            <div class="profile-detail">
+
+                <span class="profile-detail-label">
+                    Full Name
+                </span>
+
+                <span class="profile-detail-value">
+                    ${customer.name || "-"}
+                </span>
+
+            </div>
+
+
+            <div class="profile-detail">
+
+                <span class="profile-detail-label">
+                    Mobile Number
+                </span>
+
+                <span class="profile-detail-value">
+                    ${customer.phone || "-"}
+                </span>
+
+            </div>
+
+
+            <div class="profile-detail">
+
+                <span class="profile-detail-label">
+                    Email Address
+                </span>
+
+                <span class="profile-detail-value">
+                    ${customer.email || "-"}
+                </span>
+
+            </div>
+
+
+            <div class="profile-detail">
+
+                <span class="profile-detail-label">
+                    Address
+                </span>
+
+                <span class="profile-detail-value">
+                    ${customer.address || "-"}
+                </span>
+
+            </div>
+
+
+            <div class="profile-detail">
+
+                <span class="profile-detail-label">
+                    City
+                </span>
+
+                <span class="profile-detail-value">
+                    ${customer.city || "-"}
+                </span>
+
+            </div>
+
+
+            <div class="profile-detail">
+
+                <span class="profile-detail-label">
+                    State
+                </span>
+
+                <span class="profile-detail-value">
+                    ${customer.state || "-"}
+                </span>
+
+            </div>
+
+
+            <div class="profile-detail">
+
+                <span class="profile-detail-label">
+                    PIN Code
+                </span>
+
+                <span class="profile-detail-value">
+                    ${customer.pincode || "-"}
+                </span>
+
+            </div>
+
+        </div>
+
+    `;
+
+} else {
+
+    savedProfileDetails.innerHTML = `
+
+        <div class="no-profile-details">
+
+            You haven't saved your delivery details yet.
+            Complete an order with
+            <strong>
+                "Save my details"
+            </strong>
+            enabled to see them here.
+
+        </div>
+
+    `;
+
+}
+
 </script>
+
+
 <script src="js/cart-count.js"></script>
 
 </body>

@@ -5,7 +5,9 @@ const checkoutTotal =
     document.getElementById("checkout-total");
 
 
+// =========================================
 // GET CART
+// =========================================
 
 const savedCart =
     localStorage.getItem("cartProducts");
@@ -16,7 +18,9 @@ const cart =
         : [];
 
 
+// =========================================
 // SHOW ORDER
+// =========================================
 
 if (cart.length === 0) {
 
@@ -33,7 +37,9 @@ if (cart.length === 0) {
 }
 
 
+// =========================================
 // SHOW PRODUCTS
+// =========================================
 
 else {
 
@@ -89,8 +95,67 @@ else {
 }
 
 
+// =========================================
+// LOAD SAVED CUSTOMER DETAILS
+// =========================================
 
+const savedCustomer =
+    localStorage.getItem("customerDetails");
+
+
+if (savedCustomer) {
+
+    const customer =
+        JSON.parse(savedCustomer);
+
+
+    document.getElementById(
+        "customer-name"
+    ).value =
+        customer.name || "";
+
+
+    document.getElementById(
+        "customer-phone"
+    ).value =
+        customer.phone || "";
+
+
+    document.getElementById(
+        "customer-email"
+    ).value =
+        customer.email || "";
+
+
+    document.getElementById(
+        "customer-address"
+    ).value =
+        customer.address || "";
+
+
+    document.getElementById(
+        "customer-city"
+    ).value =
+        customer.city || "";
+
+
+    document.getElementById(
+        "customer-state"
+    ).value =
+        customer.state || "";
+
+
+    document.getElementById(
+        "customer-pincode"
+    ).value =
+        customer.pincode || "";
+
+}
+
+
+// =========================================
 // PAYMENT METHOD
+// =========================================
 
 const paymentOptions =
     document.querySelectorAll(
@@ -122,8 +187,9 @@ paymentOptions.forEach(function(payment) {
 });
 
 
-
+// =========================================
 // PLACE ORDER
+// =========================================
 
 const checkoutForm =
     document.getElementById("checkout-form");
@@ -136,7 +202,9 @@ checkoutForm.addEventListener(
         event.preventDefault();
 
 
-        // GET CUSTOMER NAME
+        // =====================================
+        // GET CUSTOMER DETAILS
+        // =====================================
 
         const name =
             document.getElementById(
@@ -144,7 +212,90 @@ checkoutForm.addEventListener(
             ).value.trim();
 
 
+        const phone =
+            document.getElementById(
+                "customer-phone"
+            ).value.trim();
+
+
+        const email =
+            document.getElementById(
+                "customer-email"
+            ).value.trim();
+
+
+        const address =
+            document.getElementById(
+                "customer-address"
+            ).value.trim();
+
+
+        const city =
+            document.getElementById(
+                "customer-city"
+            ).value.trim();
+
+
+        const state =
+            document.getElementById(
+                "customer-state"
+            ).value.trim();
+
+
+        const pincode =
+            document.getElementById(
+                "customer-pincode"
+            ).value.trim();
+
+
+        // =====================================
+        // CHECK SAVE DETAILS OPTION
+        // =====================================
+
+        const saveDetails =
+            document.getElementById(
+                "save-details"
+            ).checked;
+
+
+        if (saveDetails) {
+
+            const customerDetails = {
+
+                name: name,
+
+                phone: phone,
+
+                email: email,
+
+                address: address,
+
+                city: city,
+
+                state: state,
+
+                pincode: pincode
+
+            };
+
+
+            localStorage.setItem(
+                "customerDetails",
+                JSON.stringify(customerDetails)
+            );
+
+        } else {
+
+            localStorage.removeItem(
+                "customerDetails"
+            );
+
+        }
+
+
+        // =====================================
         // GET PAYMENT METHOD
+        // =====================================
 
         const selectedPayment =
             document.querySelector(
@@ -158,9 +309,12 @@ checkoutForm.addEventListener(
                 : "cod";
 
 
+        // =====================================
         // CALCULATE TOTAL
+        // =====================================
 
         let grandTotal = 0;
+
 
         cart.forEach(function(product) {
 
@@ -171,20 +325,36 @@ checkoutForm.addEventListener(
         });
 
 
+        // =====================================
         // CREATE ORDER ID
+        // =====================================
 
         const orderId =
             "ORD" +
             Date.now();
 
 
+        // =====================================
         // CREATE ORDER
+        // =====================================
 
         const newOrder = {
 
             orderId: orderId,
 
             customerName: name,
+
+            customerPhone: phone,
+
+            customerEmail: email,
+
+            deliveryAddress: address,
+
+            city: city,
+
+            state: state,
+
+            pincode: pincode,
 
             paymentMethod: paymentMethod,
 
@@ -197,10 +367,13 @@ checkoutForm.addEventListener(
         };
 
 
+        // =====================================
         // GET PREVIOUS ORDERS
+        // =====================================
 
         const savedOrders =
             localStorage.getItem("orders");
+
 
         const orders =
             savedOrders
@@ -208,12 +381,16 @@ checkoutForm.addEventListener(
                 : [];
 
 
+        // =====================================
         // ADD NEW ORDER
+        // =====================================
 
         orders.push(newOrder);
 
 
+        // =====================================
         // SAVE ORDERS
+        // =====================================
 
         localStorage.setItem(
             "orders",
@@ -221,7 +398,9 @@ checkoutForm.addEventListener(
         );
 
 
-        // SHOW SUCCESS MESSAGE
+        // =====================================
+        // SUCCESS MESSAGE
+        // =====================================
 
         alert(
             "Thank you, " +
@@ -230,7 +409,9 @@ checkoutForm.addEventListener(
         );
 
 
+        // =====================================
         // CLEAR CART
+        // =====================================
 
         localStorage.removeItem(
             "cartProducts"
@@ -242,7 +423,9 @@ checkoutForm.addEventListener(
         );
 
 
+        // =====================================
         // GO TO SUCCESS PAGE
+        // =====================================
 
         window.location.href =
             "success.html";
